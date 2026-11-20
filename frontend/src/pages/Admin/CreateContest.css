@@ -1,0 +1,187 @@
+.create-contest-page {
+  min-height: 100vh;
+  background: #0b0f19;
+  color: #ffffff;
+  padding: 32px;
+}
+
+/* Header */
+
+.create-contest-header {
+  margin-bottom: 30px;
+}
+
+.create-contest-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #9ca6bb;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.create-contest-back:hover {
+  color: #ffffff;
+}
+
+.create-contest-header h1 {
+  margin: 18px 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.create-contest-header p {
+  margin: 0;
+  color: #8b93a7;
+  font-size: 14px;
+}
+
+/* Card */
+
+.create-contest-card {
+  width: 100%;
+  max-width: 900px;
+  background: #111625;
+  border: 1px solid #202638;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+/* Form */
+
+.create-contest-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-group label {
+  color: #d8dce7;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #2a3145;
+  border-radius: 8px;
+  background: #0b0f19;
+  color: #ffffff;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input {
+  height: 46px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #697287;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #6c63ff;
+}
+
+/* Date Time */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Actions */
+
+.create-contest-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid #202638;
+}
+
+.cancel-contest-btn,
+.save-contest-btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cancel-contest-btn {
+  border: 1px solid #2a3145;
+  background: transparent;
+  color: #b5bdcf;
+}
+
+.cancel-contest-btn:hover {
+  background: #1a2030;
+  color: #ffffff;
+}
+
+.save-contest-btn {
+  border: none;
+  background: #6c63ff;
+  color: #ffffff;
+}
+
+.save-contest-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .create-contest-page {
+    padding: 20px;
+  }
+
+  .create-contest-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .create-contest-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .cancel-contest-btn,
+  .save-contest-btn {
+    width: 100%;
+  }
+}

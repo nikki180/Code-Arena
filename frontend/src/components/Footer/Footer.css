@@ -1,0 +1,826 @@
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    position:relative;
+    padding:70px 0 35px;
+    overflow:hidden;
+    margin-top: 0;
+}
+
+.footer::before{
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    top:-120px;
+    left:-140px;
+    border-radius:50%;
+    background:rgba(59,130,246,.08);
+    filter:blur(120px);
+}
+
+.footer::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    right:-100px;
+    bottom:-100px;
+    border-radius:50%;
+    background:rgba(99,102,241,.08);
+    filter:blur(120px);
+}
+
+.footer .container{
+    position:relative;
+    z-index:2;
+}
+
+/* =====================================================
+   WRAPPER
+===================================================== */
+
+.footer-wrapper{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    transition:.35s;
+
+}
+
+.footer-wrapper:hover{
+
+    border-color:rgba(59,130,246,.25);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
+
+}
+
+/* =====================================================
+   MAIN GRID
+===================================================== */
+
+.footer-main{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.25fr;
+
+    gap:70px;
+
+    align-items:flex-start;
+
+}
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.footer-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.footer-tag{
+
+    display:inline-flex;
+
+    width:max-content;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(59,130,246,.12);
+
+    border:1px solid rgba(59,130,246,.15);
+
+    color:var(--primary-color);
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+
+}
+
+.footer-left h2{
+
+    font-size:2.4rem;
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #60a5fa,
+        #22d3ee
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.footer-left p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    font-size:.96rem;
+
+    max-width:460px;
+
+    margin-bottom:28px;
+
+}
+
+.footer-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.footer-buttons .btn{
+
+    min-height:50px;
+
+    padding:14px 28px;
+
+}
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.footer-right{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr 1fr;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.footer-brand{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+}
+
+.footer-logo svg{
+
+    font-size:1.7rem;
+
+    color:var(--primary-color);
+
+}
+
+.footer-logo h3{
+
+    font-size:1.9rem;
+
+    color:#fff;
+
+}
+
+.footer-brand p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+
+}
+
+.footer-social{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.footer-social a{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.footer-social a:hover{
+
+    transform:translateY(-4px);
+
+    background:var(--primary-color);
+
+}
+/* =====================================================
+   LINKS CARDS
+===================================================== */
+
+.footer-links-card{
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:all .35s ease;
+
+}
+
+.footer-links-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(59,130,246,.25);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.footer-links-card h4{
+
+    color:#fff;
+
+    font-size:1rem;
+
+    margin-bottom:18px;
+
+}
+
+.footer-links-card a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer-links-card a:last-child{
+
+    margin-bottom:0;
+
+}
+
+.footer-links-card a:hover{
+
+    color:var(--primary-color);
+
+    transform:translateX(6px);
+
+}
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.footer-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin:38px 0 24px;
+
+}
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    padding:12px 24px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:var(--text-light);
+
+    font-size:.82rem;
+
+    text-align:center;
+
+}
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.footer-wrapper:hover .footer-logo svg{
+
+    transform:rotate(-10deg);
+
+    transition:.35s;
+
+}
+
+.footer-bottom p:hover{
+
+    border-color:rgba(59,130,246,.25);
+
+    background:rgba(255,255,255,.06);
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:1100px){
+
+    .footer-main{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .footer-right{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .footer{
+
+        padding:50px 0 25px;
+
+    }
+
+    .footer-wrapper{
+
+        padding:28px;
+
+    }
+
+    .footer-left{
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .footer-left p{
+
+        max-width:100%;
+
+    }
+
+    .footer-buttons{
+
+        justify-content:center;
+
+    }
+
+    .footer-right{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-brand{
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .footer-divider{
+
+        margin:30px 0 20px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .footer-wrapper{
+
+        padding:22px 18px;
+
+        border-radius:22px;
+
+    }
+
+    .footer-left h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .footer-logo h3{
+
+        font-size:1.55rem;
+
+    }
+
+    .footer-brand p{
+
+        font-size:.9rem;
+
+    }
+
+    .footer-links-card{
+
+        padding:18px;
+
+    }
+
+    .footer-bottom p{
+
+        width:100%;
+
+        font-size:.75rem;
+
+        line-height:1.6;
+
+    }
+
+}
+
+/* ==========================================
+        FOOTER RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+.footer-content{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+.footer-bottom{
+
+    flex-direction:column;
+
+    gap:18px;
+
+    text-align:center;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.footer{
+
+    padding:60px 0 25px;
+
+}
+
+.footer-content{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+    text-align:center;
+
+}
+
+.footer-logo{
+
+    justify-content:center;
+
+}
+
+.footer-social{
+
+    justify-content:center;
+
+}
+
+.footer-links{
+
+    align-items:center;
+
+}
+
+.footer-links a{
+
+    justify-content:center;
+
+}
+
+}
+
+@media (max-width:576px){
+
+.footer{
+
+    padding:50px 0 20px;
+
+}
+
+.footer-content{
+
+    gap:24px;
+
+}
+
+.footer h3{
+
+    font-size:18px;
+
+}
+
+.footer p{
+
+    font-size:14px;
+
+}
+
+.footer-links a{
+
+    font-size:14px;
+
+}
+
+.footer-bottom{
+
+    font-size:13px;
+
+}
+
+}
+
+@media (max-width:420px){
+
+.footer{
+
+    padding:40px 0 18px;
+
+}
+
+.footer h3{
+
+    font-size:17px;
+
+}
+
+.footer p{
+
+    font-size:13px;
+
+}
+
+.footer-links a{
+
+    font-size:13px;
+
+}
+
+.footer-social a{
+
+    width:40px;
+
+    height:40px;
+
+}
+
+}
+/* ==========================================================
+   LIGHT THEME - FOOTER POLISH
+   Dark theme remains unchanged
+========================================================== */
+
+[data-theme="light"] .footer{
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37,99,235,.06),
+            transparent 35%
+        ),
+        var(--background-color);
+}
+
+
+/* Main wrapper */
+
+[data-theme="light"] .footer-wrapper{
+    background:rgba(255,255,255,.88);
+    border-color:rgba(15,23,42,.08);
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.07);
+}
+
+[data-theme="light"] .footer-wrapper:hover{
+    border-color:rgba(37,99,235,.20);
+
+    box-shadow:
+        0 22px 50px rgba(15,23,42,.10);
+}
+
+
+/* Left heading */
+
+[data-theme="light"] .footer-left h2{
+    background:linear-gradient(
+        90deg,
+        #0F172A,
+        #2563EB,
+        #0891B2
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+[data-theme="light"] .footer-left p{
+    color:#475569;
+}
+
+
+/* Footer tag */
+
+[data-theme="light"] .footer-tag{
+    background:rgba(37,99,235,.07);
+    border-color:rgba(37,99,235,.14);
+    color:#2563EB;
+}
+
+
+/* Brand */
+
+[data-theme="light"] .footer-logo h3{
+    color:#0F172A;
+}
+
+[data-theme="light"] .footer-brand p{
+    color:#64748B;
+}
+
+
+/* Social icons */
+
+[data-theme="light"] .footer-social a{
+    background:#F8FAFC;
+    border-color:rgba(15,23,42,.08);
+    color:#334155;
+}
+
+[data-theme="light"] .footer-social a:hover{
+    background:#2563EB;
+    border-color:#2563EB;
+    color:#FFFFFF;
+}
+
+
+/* Links cards */
+
+[data-theme="light"] .footer-links-card{
+    background:#F8FAFC;
+    border-color:rgba(15,23,42,.08);
+}
+
+[data-theme="light"] .footer-links-card:hover{
+    background:#FFFFFF;
+    border-color:rgba(37,99,235,.22);
+
+    box-shadow:
+        0 16px 35px rgba(15,23,42,.08);
+}
+
+[data-theme="light"] .footer-links-card h4{
+    color:#0F172A;
+}
+
+[data-theme="light"] .footer-links-card a{
+    color:#64748B;
+}
+
+[data-theme="light"] .footer-links-card a:hover{
+    color:#2563EB;
+}
+
+
+/* Divider */
+
+[data-theme="light"] .footer-divider{
+    background:rgba(15,23,42,.08);
+}
+
+
+/* Copyright */
+
+[data-theme="light"] .footer-bottom p{
+    background:#F8FAFC;
+    border-color:rgba(15,23,42,.08);
+    color:#64748B;
+}
+
+[data-theme="light"] .footer-bottom p:hover{
+    background:#FFFFFF;
+    border-color:rgba(37,99,235,.20);
+}

@@ -1,0 +1,1106 @@
+/* ==========================================
+                ABOUT SECTION
+========================================== */
+
+.about{
+    padding:65px 0;
+    background:var(--background-color);
+    position:relative;
+    overflow:hidden;
+}
+
+.about::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    right:-180px;
+    top:-150px;
+
+    background:var(--primary-color);
+
+    opacity:.08;
+
+    filter:blur(180px);
+
+}
+
+.about::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    left:-120px;
+    bottom:-120px;
+
+    background:var(--secondary-color);
+
+    opacity:.06;
+
+    filter:blur(170px);
+
+}
+
+/* ==========================================
+                LAYOUT
+========================================== */
+
+.about-wrapper{
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:60px;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+                LEFT SIDE
+========================================== */
+
+.about-tag{
+
+    display:inline-block;
+
+    color:var(--primary-color);
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    margin-bottom:14px;
+
+}
+
+.about-left h2{
+
+    color:var(--text-primary);
+
+    font-size:34px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.about-left h2 span{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.about-text{
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:16px;
+
+    max-width:560px;
+
+}
+
+/* ==========================================
+                CHECKLIST
+========================================== */
+
+.about-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+    margin:28px 0;
+
+}
+
+.about-list div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.about-list svg{
+
+    color:var(--primary-color);
+
+    font-size:17px;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================
+                STATS
+========================================== */
+
+.about-stats{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-bottom:30px;
+
+}
+
+.stat-item h3{
+
+    color:var(--text-primary);
+
+    font-size:28px;
+
+    margin-bottom:4px;
+
+}
+
+.stat-item span{
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+                RIGHT SIDE
+========================================== */
+
+.about-right{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+/* ==========================================
+                DASHBOARD
+========================================== */
+
+.dashboard-card{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:26px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+                HEADER
+========================================== */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.profile-avatar{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+}
+
+.profile h4{
+
+    color:var(--text-primary);
+
+    font-size:18px;
+
+    margin-bottom:4px;
+
+}
+
+.profile p{
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+
+}
+
+.online-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+}
+
+/* ==========================================
+            PROGRESS BAR
+========================================== */
+
+.progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+.progress-info span{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+}
+
+.progress-info strong{
+
+    color:var(--text-primary);
+
+}
+
+.progress-bar{
+
+    height:8px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+
+}
+
+.progress-fill{
+
+    width:78%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+}
+/* ==========================================
+            DASHBOARD STATS
+========================================== */
+
+.dashboard-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+
+    margin-bottom:28px;
+
+}
+
+.dashboard-stats div{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:18px 12px;
+
+    text-align:center;
+
+    transition:var(--transition-normal);
+
+}
+
+.dashboard-stats h3{
+
+    color:var(--text-primary);
+
+    font-size:22px;
+
+    margin-bottom:6px;
+
+}
+
+.dashboard-stats p{
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+                SKILLS
+========================================== */
+
+.skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.skills span{
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(59,130,246,.12);
+
+    border:1px solid rgba(59,130,246,.25);
+
+    color:var(--text-primary);
+
+    font-size:13px;
+
+    font-weight:500;
+
+    transition:var(--transition-normal);
+
+}
+
+/* ==========================================
+            HOVER EFFECTS
+========================================== */
+
+.dashboard-card{
+
+    transition:var(--transition-normal);
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(59,130,246,.35);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.35),
+        0 0 25px rgba(59,130,246,.15);
+
+}
+
+.dashboard-stats div:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(59,130,246,.30);
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.skills span:hover{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+.about-list div{
+
+    transition:var(--transition-normal);
+
+}
+
+.about-list div:hover{
+
+    transform:translateX(6px);
+
+}
+
+.about-list div:hover svg{
+
+    transform:scale(1.2);
+
+}
+
+.about-list svg{
+
+    transition:var(--transition-normal);
+
+}
+
+/* ==========================================
+            ANIMATIONS
+========================================== */
+
+.dashboard-card{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.online-dot{
+
+    animation:pulse 1.6s infinite;
+
+}
+
+.progress-fill{
+
+    animation:progressLoad 2.5s ease;
+
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,.6);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 10px rgba(34,197,94,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+
+    }
+
+}
+
+@keyframes progressLoad{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:78%;
+
+    }
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:1100px){
+
+.about-wrapper{
+
+    grid-template-columns:1fr;
+
+    gap:50px;
+
+}
+
+.about-right{
+
+    order:-1;
+
+}
+
+.dashboard-card{
+
+    max-width:520px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.about{
+
+    padding:60px 0;
+
+}
+
+.about-left h2{
+
+    font-size:30px;
+
+}
+
+.about-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.about-stats{
+
+    justify-content:space-between;
+
+    gap:18px;
+
+}
+
+.dashboard-stats{
+
+    gap:12px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.about{
+
+    padding:55px 0;
+
+}
+
+.about-left h2{
+
+    font-size:26px;
+
+}
+
+.about-text{
+
+    font-size:14px;
+
+}
+
+.about-stats{
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.dashboard-card{
+
+    padding:20px;
+
+}
+
+.dashboard-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+.profile-avatar{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+.skills{
+
+    gap:10px;
+
+}
+
+.skills span{
+
+    font-size:12px;
+
+}
+
+}
+.dashboard-card{
+    transform:rotate(3deg);
+}
+
+.dashboard-card:hover{
+    transform:rotate(0deg) translateY(-8px);
+}
+.progress-fill{
+
+box-shadow:
+0 0 15px rgba(59,130,246,.45);
+
+}
+/* ==========================================
+        EXTRA RESPONSIVE IMPROVEMENTS
+========================================== */
+
+@media (max-width: 992px){
+
+.about-wrapper{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+    text-align:center;
+
+}
+
+.about-right{
+
+    order:2;
+
+}
+
+.about-left{
+
+    order:1;
+
+}
+
+.about-text{
+
+    max-width:100%;
+
+    margin:0 auto 18px;
+
+}
+
+.about-list{
+
+    max-width:500px;
+
+    margin:30px auto;
+
+}
+
+.about-stats{
+
+    justify-content:center;
+
+}
+
+.dashboard-card{
+
+    margin:auto;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.about{
+
+    padding:50px 0;
+
+}
+
+.about-left h2{
+
+    font-size:28px;
+
+    line-height:1.3;
+
+}
+
+.about-text{
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+.about-list{
+
+    gap:14px;
+
+}
+
+.dashboard-card{
+
+    width:100%;
+
+    max-width:100%;
+
+}
+
+.dashboard-header{
+
+    flex-direction:column;
+
+    gap:18px;
+
+    text-align:center;
+
+}
+
+.profile{
+
+    justify-content:center;
+
+}
+
+}
+
+@media (max-width:576px){
+
+.about{
+
+    padding:45px 0;
+
+}
+
+.about-left h2{
+
+    font-size:24px;
+
+}
+
+.about-tag{
+
+    font-size:12px;
+
+}
+
+.about-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.about-list div{
+
+    justify-content:center;
+
+}
+
+.dashboard-card{
+
+    padding:18px;
+
+}
+
+.progress-info{
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.skills{
+
+    justify-content:center;
+
+}
+
+.dashboard-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media (max-width:420px){
+
+.about{
+
+    padding:40px 0;
+
+}
+
+.about-left h2{
+
+    font-size:22px;
+
+}
+
+.about-text{
+
+    font-size:13px;
+
+}
+
+.profile-avatar{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+.profile h4{
+
+    font-size:16px;
+
+}
+
+.dashboard-card{
+
+    padding:16px;
+
+}
+
+.skills span{
+
+    padding:7px 12px;
+
+    font-size:11px;
+
+}
+
+}
+
+/* ==========================================================
+   LIGHT THEME - ABOUT POLISH
+   Dark theme remains unchanged
+========================================================== */
+
+[data-theme="light"] .about{
+    background:var(--background-color);
+}
+
+
+/* About heading */
+
+[data-theme="light"] .about-left h2{
+    color:#0F172A;
+}
+
+[data-theme="light"] .about-left h2 span{
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #0891B2
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+[data-theme="light"] .about-tag{
+    color:#2563EB;
+}
+
+[data-theme="light"] .about-text{
+    color:#475569;
+}
+
+
+/* Checklist */
+
+[data-theme="light"] .about-list div{
+    color:#1E293B;
+}
+
+[data-theme="light"] .about-list svg{
+    color:#2563EB;
+}
+
+
+/* Stats */
+
+[data-theme="light"] .stat-item h3{
+    color:#0F172A;
+}
+
+[data-theme="light"] .stat-item span{
+    color:#64748B;
+}
+
+
+/* Dashboard */
+
+[data-theme="light"] .dashboard-card{
+    background:rgba(255,255,255,.88);
+    border-color:rgba(15,23,42,.08);
+
+    box-shadow:
+        0 18px 40px rgba(15,23,42,.09);
+}
+
+[data-theme="light"] .dashboard-card:hover{
+    border-color:rgba(37,99,235,.25);
+
+    box-shadow:
+        0 22px 45px rgba(37,99,235,.12);
+}
+
+
+/* Profile */
+
+[data-theme="light"] .profile h4{
+    color:#0F172A;
+}
+
+[data-theme="light"] .profile p{
+    color:#64748B;
+}
+
+
+/* Progress */
+
+[data-theme="light"] .progress-info span{
+    color:#64748B;
+}
+
+[data-theme="light"] .progress-info strong{
+    color:#0F172A;
+}
+
+[data-theme="light"] .progress-bar{
+    background:rgba(15,23,42,.08);
+}
+
+
+/* Dashboard stats */
+
+[data-theme="light"] .dashboard-stats div{
+    background:#F8FAFC;
+    border-color:rgba(15,23,42,.07);
+}
+
+[data-theme="light"] .dashboard-stats div:hover{
+    background:#FFFFFF;
+    border-color:rgba(37,99,235,.25);
+}
+
+[data-theme="light"] .dashboard-stats h3{
+    color:#0F172A;
+}
+
+[data-theme="light"] .dashboard-stats p{
+    color:#64748B;
+}
+
+
+/* Skills */
+
+[data-theme="light"] .skills span{
+    background:rgba(37,99,235,.07);
+    border-color:rgba(37,99,235,.16);
+    color:#1E293B;
+}
+
+[data-theme="light"] .skills span:hover{
+    color:#FFFFFF;
+}

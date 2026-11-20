@@ -1,0 +1,387 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:var(--background-color);
+
+    color:var(--text-primary);
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+/* ==========================================
+   COMMON ELEMENTS
+========================================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    border:none;
+
+    outline:none;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+
+    width:min(92%, var(--container-width));
+
+    margin:auto;
+
+}
+
+/* ==========================================
+   COMMON SECTION
+========================================== */
+
+section{
+
+    padding:var(--section-padding) 0;
+
+}
+
+/* ==========================================
+   COMMON HEADINGS
+========================================== */
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:55px;
+
+}
+
+.section-heading p{
+
+    color:var(--primary-color);
+
+    font-size:var(--fs-small);
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+
+}
+
+.section-heading h2{
+
+    font-size:var(--fs-h2);
+
+    color:var(--text-primary);
+
+    font-weight:var(--fw-bold);
+
+    line-height:var(--line-heading);
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+/* ==========================================
+   COMMON BUTTONS
+========================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 28px;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition-normal);
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-neon);
+
+}
+
+.btn-outline{
+
+    border:1px solid var(--border-color);
+
+    color:white;
+
+    background:transparent;
+
+}
+
+.btn-outline:hover{
+
+    background:rgba(255,255,255,.05);
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:9px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#060B18;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#1E3A8A;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#2563EB;
+
+}
+
+/* ==========================================
+   TEXT SELECTION
+========================================== */
+
+::selection{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.container{
+
+    width:94%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-heading h2{
+
+    font-size:30px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+section{
+
+    padding:65px 0;
+
+}
+
+.section-heading{
+
+    margin-bottom:40px;
+
+}
+
+.section-heading h2{
+
+    font-size:26px;
+
+}
+
+}
+
+/* ==========================================================
+   LIGHT THEME - GLOBAL POLISH
+   Dark theme remains unchanged
+========================================================== */
+
+[data-theme="light"] body{
+    background:var(--background-color);
+    color:var(--text-primary);
+}
+
+
+/* Common section headings */
+
+[data-theme="light"] .section-heading h2{
+    color:var(--text-primary);
+}
+
+[data-theme="light"] .section-heading p{
+    color:var(--primary-color);
+}
+
+
+/* Outline buttons */
+
+[data-theme="light"] .btn-outline{
+    color:#1E293B;
+    border-color:rgba(15,23,42,.15);
+    background:transparent;
+}
+
+[data-theme="light"] .btn-outline:hover{
+    background:rgba(37,99,235,.06);
+    border-color:rgba(37,99,235,.30);
+}
+
+
+/* Primary button */
+
+[data-theme="light"] .btn-primary{
+    color:#FFFFFF;
+}
+
+
+/* Scrollbar */
+
+[data-theme="light"]::-webkit-scrollbar-track{
+    background:#E8EDF5;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb{
+    background:#94A3B8;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb:hover{
+    background:#2563EB;
+}
+
+
+/* Selection */
+
+[data-theme="light"] ::selection{
+    background:#2563EB;
+    color:#FFFFFF;
+}
+
+/* Consistent light surfaces for page layouts that use their own CSS files. */
+html[data-theme="light"] [class*="-page"] {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] [class*="-page"] [class*="-card"],
+html[data-theme="light"] [class*="-page"] [class*="-panel"],
+html[data-theme="light"] [class*="-page"] [class*="-sidebar"],
+html[data-theme="light"] [class*="-page"] [class*="-topbar"] {
+  background-color: #fff;
+  border-color: #dbe3ef;
+  color: #1e293b;
+}
+
+html[data-theme="light"] [class*="-page"] h1,
+html[data-theme="light"] [class*="-page"] h2,
+html[data-theme="light"] [class*="-page"] h3,
+html[data-theme="light"] [class*="-page"] h4,
+html[data-theme="light"] [class*="-page"] strong,
+html[data-theme="light"] [class*="-page"] label {
+  color: #0f172a;
+}
+
+html[data-theme="light"] [class*="-page"] p,
+html[data-theme="light"] [class*="-page"] small {
+  color: #475569;
+}
+
+html[data-theme="light"] [class*="-page"] input,
+html[data-theme="light"] [class*="-page"] textarea,
+html[data-theme="light"] [class*="-page"] select {
+  background-color: #fff;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}

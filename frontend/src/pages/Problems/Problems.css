@@ -1,0 +1,2186 @@
+/* =========================================================
+   CODEARENA — PROBLEMS PAGE
+   Premium Dark + Animated UI
+========================================================= */
+
+/* =========================
+   RESET
+========================= */
+
+.problems-page,
+.problems-page * {
+  box-sizing: border-box;
+}
+
+.problems-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(0, 200, 255, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 25% 75%,
+      rgba(65, 105, 255, 0.045),
+      transparent 30%
+    ),
+    #050816;
+
+  color: #f4f7ff;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+.problems-page::before {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+
+  right: -180px;
+  top: 120px;
+
+  border: 1px solid rgba(0, 200, 255, 0.08);
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: problemsOrbit 14s linear infinite;
+}
+
+.problems-page::after {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+
+  right: -300px;
+  top: 30px;
+
+  border: 1px solid rgba(70, 120, 255, 0.055);
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: problemsOrbitReverse 20s linear infinite;
+}
+
+@keyframes problemsOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes problemsOrbitReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.problems-sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  padding: 28px 18px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 17, 38, 0.98),
+      rgba(4, 12, 28, 0.99)
+    );
+
+  border-right: 1px solid rgba(120, 150, 190, 0.12);
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  animation: sidebarEnter 0.6s ease both;
+}
+
+@keyframes sidebarEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.problems-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 7px 8px 28px;
+
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+
+  color: #f7f9ff;
+}
+
+.problems-logo > span span {
+  color: #16c3e4;
+}
+
+.problems-logo-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2e8cff,
+      #08bfd5
+    );
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 18px rgba(0, 180, 255, 0.25);
+
+  transition: 0.3s ease;
+}
+
+.problems-logo:hover .problems-logo-icon {
+  transform: rotate(-5deg) scale(1.06);
+
+  box-shadow:
+    0 0 28px rgba(0, 200, 255, 0.42);
+}
+
+
+/* =========================================================
+   NAV TITLE
+========================================================= */
+
+.problems-nav-title {
+  margin: 8px 8px 12px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #61708c;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.problems-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.problems-nav-item {
+  position: relative;
+
+  height: 43px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: #8d9bb4;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: 10px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.problems-nav-item svg {
+  width: 16px;
+  min-width: 16px;
+
+  color: #8391a9;
+
+  transition: 0.25s ease;
+}
+
+.problems-nav-item:hover {
+  color: #f4f8ff;
+
+  background: rgba(30, 83, 145, 0.18);
+
+  transform: translateX(3px);
+}
+
+.problems-nav-item:hover svg {
+  color: #16c3e4;
+}
+
+.problems-nav-item.active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(33, 112, 230, 0.34),
+      rgba(9, 170, 205, 0.12)
+    );
+
+  border: 1px solid rgba(48, 137, 255, 0.38);
+
+  box-shadow:
+    inset 3px 0 0 #268fff,
+    0 6px 22px rgba(0, 96, 255, 0.09);
+}
+
+.problems-nav-item.active svg {
+  color: #15c5e5;
+}
+
+.problems-nav-item.logout:hover {
+  color: #ff7180;
+
+  background: rgba(255, 70, 90, 0.08);
+}
+
+.problems-nav-item.logout:hover svg {
+  color: #ff7180;
+}
+
+
+/* Notification badge */
+
+.notification-nav {
+  position: relative;
+}
+
+.notification-nav small {
+  margin-left: auto;
+
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ff4655;
+  color: white;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 12px rgba(255, 65, 80, 0.32);
+}
+
+
+/* =========================================================
+   SIDEBAR DIVIDER
+========================================================= */
+
+.problems-sidebar-divider {
+  height: 1px;
+
+  margin: 18px 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(130, 155, 190, 0.16),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SIDEBAR CARD
+========================================================= */
+
+.problems-sidebar-card {
+  margin-top: auto;
+
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 35, 66, 0.85),
+      rgba(8, 21, 42, 0.9)
+    );
+
+  border: 1px solid rgba(40, 123, 255, 0.16);
+
+  transition: 0.3s ease;
+}
+
+.problems-sidebar-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(0, 193, 226, 0.35);
+
+  box-shadow:
+    0 12px 30px rgba(0, 100, 255, 0.12);
+}
+
+.problems-sidebar-card-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(255, 126, 30, 0.11);
+
+  color: #ff9f2d;
+}
+
+.problems-sidebar-card strong {
+  display: block;
+
+  font-size: 12px;
+  color: #e9efff;
+}
+
+.problems-sidebar-card p {
+  margin: 3px 0 0;
+
+  font-size: 10px;
+  color: #687a97;
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.problems-main {
+  width: calc(100% - 280px);
+  min-height: 100vh;
+
+  margin-left: 280px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.problems-topbar {
+  height: 84px;
+
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background:
+    rgba(5, 10, 24, 0.84);
+
+  border-bottom: 1px solid rgba(120, 150, 190, 0.10);
+
+  backdrop-filter: blur(14px);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 15;
+
+  animation: topbarEnter 0.6s ease both;
+}
+
+@keyframes topbarEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.problems-search {
+  width: min(550px, 48%);
+
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 0 13px;
+
+  border-radius: 11px;
+
+  background: rgba(15, 20, 38, 0.78);
+
+  border: 1px solid rgba(125, 150, 190, 0.16);
+
+  color: #70819d;
+
+  transition: 0.3s ease;
+}
+
+.problems-search:focus-within {
+  border-color: rgba(40, 142, 255, 0.55);
+
+  box-shadow:
+    0 0 0 3px rgba(40, 142, 255, 0.07),
+    0 0 24px rgba(0, 137, 255, 0.08);
+}
+
+.problems-search svg {
+  font-size: 14px;
+  color: #71839f;
+}
+
+.problems-search input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #e8efff;
+
+  font-size: 13px;
+}
+
+.problems-search input::placeholder {
+  color: #66758e;
+}
+
+.problems-search > span {
+  padding: 4px 7px;
+
+  border-radius: 5px;
+
+  background: rgba(100, 120, 160, 0.08);
+
+  border: 1px solid rgba(130, 150, 180, 0.10);
+
+  font-size: 9px;
+  color: #65748d;
+}
+
+
+/* =========================================================
+   TOP ACTIONS
+========================================================= */
+
+.problems-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.problems-icon-btn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(120, 145, 185, 0.14);
+
+  background: rgba(13, 20, 37, 0.75);
+
+  color: #8c9bb4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  position: relative;
+}
+
+.problems-icon-btn:hover {
+  color: #ffffff;
+
+  border-color: rgba(38, 150, 255, 0.35);
+
+  background: rgba(25, 49, 83, 0.65);
+
+  transform: translateY(-2px);
+}
+
+.problems-bell small {
+  position: absolute;
+
+  right: -4px;
+  top: -6px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ff4655;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.problems-profile {
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 3px 8px 3px 5px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.problems-profile:hover {
+  background: rgba(40, 80, 130, 0.14);
+}
+
+.problems-avatar {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #258fff,
+      #6948ff
+    );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 16px rgba(58, 105, 255, 0.22);
+}
+
+.problems-profile strong {
+  display: block;
+
+  color: #edf3ff;
+
+  font-size: 12px;
+}
+
+.problems-profile span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #667892;
+
+  font-size: 9px;
+}
+
+.problems-profile > svg {
+  margin-left: 7px;
+
+  color: #71829b;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.problems-content {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 38px 32px 50px;
+
+  animation: contentEnter 0.7s ease both;
+}
+
+@keyframes contentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.problems-hero {
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+
+  position: relative;
+}
+
+.problems-eyebrow {
+  margin: 0 0 8px;
+
+  color: #08c8e5;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.problems-hero h1 {
+  margin: 0;
+
+  font-size: clamp(34px, 3.2vw, 48px);
+
+  line-height: 1.08;
+
+  letter-spacing: -1.8px;
+
+  font-weight: 800;
+
+  color: #f5f7ff;
+}
+
+.problems-hero h1 span {
+  color: #348cff;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3d8fff,
+      #00bed8
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.problems-hero > div:first-child > p:last-child {
+  margin: 11px 0 0;
+
+  color: #8091ad;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   STREAK
+========================================================= */
+
+.problems-streak {
+  min-width: 175px;
+
+  padding: 13px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  border-radius: 13px;
+
+  background:
+    rgba(16, 16, 28, 0.82);
+
+  border: 1px solid rgba(255, 159, 36, 0.28);
+
+  box-shadow:
+    0 0 28px rgba(255, 140, 20, 0.04);
+
+  transition: 0.3s ease;
+}
+
+.problems-streak:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255, 169, 47, 0.55);
+
+  box-shadow:
+    0 10px 30px rgba(255, 140, 20, 0.10);
+}
+
+.streak-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: rgba(255, 135, 25, 0.10);
+
+  color: #ffab2e;
+
+  font-size: 18px;
+}
+
+.problems-streak strong {
+  display: block;
+
+  font-size: 23px;
+  line-height: 1;
+
+  color: #f4f7ff;
+}
+
+.problems-streak span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #73839d;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.problems-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.problem-stat {
+  min-height: 82px;
+
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(14, 21, 39, 0.92),
+      rgba(8, 14, 29, 0.92)
+    );
+
+  border: 1px solid rgba(110, 140, 180, 0.13);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  animation: statAppear 0.6s ease both;
+}
+
+.problem-stat:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.problem-stat:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.problem-stat:nth-child(3) {
+  animation-delay: 0.20s;
+}
+
+.problem-stat:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+@keyframes statAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.problem-stat:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(55, 140, 255, 0.28);
+
+  box-shadow:
+    0 12px 30px rgba(0, 60, 150, 0.08);
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+
+  min-width: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+}
+
+.stat-icon.blue {
+  color: #3e91ff;
+  background: rgba(50, 120, 255, 0.12);
+}
+
+.stat-icon.green {
+  color: #3fe49b;
+  background: rgba(25, 190, 130, 0.12);
+}
+
+.stat-icon.orange {
+  color: #ff9c31;
+  background: rgba(255, 145, 35, 0.12);
+}
+
+.stat-icon.purple {
+  color: #b078ff;
+  background: rgba(150, 80, 255, 0.12);
+}
+
+.problem-stat span {
+  display: block;
+
+  color: #687994;
+
+  font-size: 10px;
+
+  margin-bottom: 3px;
+}
+
+.problem-stat strong {
+  display: block;
+
+  color: #edf2ff;
+
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.problems-filter-bar {
+  min-height: 60px;
+
+  padding: 8px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 13px;
+
+  background:
+    rgba(12, 18, 34, 0.78);
+
+  border: 1px solid rgba(110, 140, 180, 0.13);
+
+  backdrop-filter: blur(10px);
+}
+
+.difficulty-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.difficulty-tabs button {
+  height: 42px;
+
+  padding: 0 17px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #72829c;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.difficulty-tabs button:hover {
+  color: #eaf2ff;
+
+  background: rgba(55, 100, 160, 0.12);
+}
+
+.difficulty-tabs button.active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3688ff,
+      #2773e8
+    );
+
+  box-shadow:
+    0 5px 18px rgba(42, 125, 255, 0.20);
+}
+
+
+/* Filter actions */
+
+.problem-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.filter-button {
+  height: 38px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(120, 145, 180, 0.15);
+
+  background: rgba(20, 28, 48, 0.65);
+
+  color: #8595ae;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.filter-button:hover {
+  color: #ffffff;
+
+  border-color: rgba(42, 140, 255, 0.32);
+
+  background: rgba(35, 70, 110, 0.4);
+}
+
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #63738d;
+
+  font-size: 11px;
+}
+
+.sort-wrapper select {
+  height: 36px;
+
+  padding: 0 8px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(120, 145, 180, 0.13);
+
+  outline: none;
+
+  background: #10182a;
+
+  color: #aab8ce;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PROBLEM LIST CONTAINER
+========================================================= */
+
+.problems-list-container {
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 20, 38, 0.94),
+      rgba(7, 13, 28, 0.95)
+    );
+
+  border: 1px solid rgba(105, 135, 175, 0.14);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   LIST HEADER
+========================================================= */
+
+.problems-list-header {
+  min-height: 70px;
+
+  padding: 15px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(110, 140, 180, 0.10);
+}
+
+.problems-list-header p {
+  margin: 0 0 3px;
+
+  color: #08c6e4;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.problems-list-header h2 {
+  margin: 0;
+
+  color: #eef3ff;
+
+  font-size: 19px;
+
+  letter-spacing: -0.3px;
+}
+
+.problems-list-header > span {
+  color: #62738d;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.problem-table-head {
+  min-height: 42px;
+
+  padding: 0 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    42px
+    minmax(260px, 2.3fr)
+    105px
+    130px
+    100px
+    90px
+    70px
+    42px;
+
+  align-items: center;
+
+  color: #52627c;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+
+  border-bottom: 1px solid rgba(110, 140, 180, 0.08);
+}
+
+
+/* =========================================================
+   PROBLEM ROWS
+========================================================= */
+
+.problem-rows {
+  width: 100%;
+}
+
+.problem-row {
+  min-height: 76px;
+
+  padding: 10px 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    42px
+    minmax(260px, 2.3fr)
+    105px
+    130px
+    100px
+    90px
+    70px
+    42px;
+
+  align-items: center;
+
+  border-bottom: 1px solid rgba(100, 130, 170, 0.07);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+
+  animation: rowEnter 0.45s ease both;
+}
+
+.problem-row:nth-child(1) {
+  animation-delay: 0.04s;
+}
+
+.problem-row:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.problem-row:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.problem-row:nth-child(4) {
+  animation-delay: 0.16s;
+}
+
+.problem-row:nth-child(5) {
+  animation-delay: 0.20s;
+}
+
+.problem-row:nth-child(6) {
+  animation-delay: 0.24s;
+}
+
+@keyframes rowEnter {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.problem-row:last-child {
+  border-bottom: none;
+}
+
+.problem-row:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(28, 92, 170, 0.10),
+      rgba(0, 190, 220, 0.035)
+    );
+
+  border-bottom-color: rgba(40, 130, 220, 0.14);
+}
+
+
+/* Number */
+
+.problem-number {
+  color: #53637c;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PROBLEM NAME
+========================================================= */
+
+.problem-name {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.problem-name > svg {
+  flex-shrink: 0;
+
+  color: #4e5f79;
+
+  font-size: 12px;
+
+  transition: 0.25s ease;
+}
+
+.problem-row:hover .problem-name > svg {
+  color: #ffd45b;
+
+  transform: rotate(12deg) scale(1.1);
+}
+
+.problem-name > div {
+  min-width: 0;
+}
+
+.problem-name a {
+  display: inline-block;
+
+  max-width: 100%;
+
+  color: #dce5f7;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: 0.25s ease;
+}
+
+.problem-name a:hover {
+  color: #35a9ff;
+}
+
+.problem-name small {
+  margin-left: 7px;
+
+  padding: 2px 5px;
+
+  border-radius: 4px;
+
+  background: rgba(0, 196, 216, 0.11);
+
+  color: #18cbe3;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  vertical-align: middle;
+}
+
+.problem-name p {
+  margin: 3px 0 0;
+
+  max-width: 500px;
+
+  color: #63738d;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   DIFFICULTY
+========================================================= */
+
+.difficulty {
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.difficulty.easy {
+  color: #45dfa0;
+
+  background: rgba(30, 210, 140, 0.09);
+
+  border: 1px solid rgba(30, 210, 140, 0.12);
+}
+
+.difficulty.medium {
+  color: #ffbd55;
+
+  background: rgba(255, 175, 45, 0.09);
+
+  border: 1px solid rgba(255, 175, 45, 0.12);
+}
+
+.difficulty.hard {
+  color: #ff6876;
+
+  background: rgba(255, 65, 85, 0.09);
+
+  border: 1px solid rgba(255, 65, 85, 0.12);
+}
+
+
+/* =========================================================
+   TOPIC
+========================================================= */
+
+.topic-tag {
+  width: fit-content;
+
+  max-width: 120px;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  background: rgba(100, 125, 175, 0.07);
+
+  border: 1px solid rgba(120, 145, 180, 0.09);
+
+  color: #8192ad;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   ACCEPTANCE / SOLVED / XP
+========================================================= */
+
+.acceptance,
+.solved-count {
+  color: #8c9bb2;
+
+  font-size: 10px;
+}
+
+.xp {
+  color: #f3bc52;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SOLVE BUTTON
+========================================================= */
+
+.solve-button {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(40, 110, 220, 0.10);
+
+  border: 1px solid rgba(50, 130, 230, 0.16);
+
+  color: #4d9cff;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.solve-button svg {
+  font-size: 9px;
+}
+
+.solve-button:hover {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #348fff,
+      #08bcd4
+    );
+
+  border-color: transparent;
+
+  transform: translateX(3px);
+
+  box-shadow:
+    0 6px 18px rgba(35, 135, 255, 0.22);
+}
+
+
+/* =========================================================
+   NO PROBLEMS
+========================================================= */
+
+.no-problems {
+  min-height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  color: #687892;
+}
+
+.no-problems svg {
+  margin-bottom: 12px;
+
+  font-size: 25px;
+
+  color: #3f8fff;
+}
+
+.no-problems h3 {
+  margin: 0;
+
+  color: #dce5f5;
+
+  font-size: 15px;
+}
+
+.no-problems p {
+  margin: 6px 0 0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.problem-pagination {
+  min-height: 58px;
+
+  padding: 10px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(110, 140, 180, 0.09);
+
+  color: #61718b;
+
+  font-size: 10px;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination-buttons button {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  border: 1px solid rgba(115, 140, 180, 0.13);
+
+  background: rgba(15, 23, 40, 0.75);
+
+  color: #71829b;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.pagination-buttons button:hover:not(:disabled) {
+  color: white;
+
+  border-color: rgba(50, 135, 255, 0.4);
+
+  background: rgba(35, 90, 155, 0.25);
+}
+
+.pagination-buttons button.active {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #398cff,
+      #2476ed
+    );
+
+  border-color: transparent;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.3;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.problems-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.problems-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.problems-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(70, 110, 160, 0.25);
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .problems-sidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .problems-main {
+    width: calc(100% - 240px);
+    margin-left: 240px;
+  }
+
+  .problems-content {
+    padding: 30px 24px 40px;
+  }
+
+  .problems-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .problem-table-head,
+  .problem-row {
+    grid-template-columns:
+      38px
+      minmax(230px, 2fr)
+      90px
+      110px
+      85px
+      75px
+      60px
+      38px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .problems-sidebar {
+    width: 215px;
+    min-width: 215px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .problems-main {
+    width: calc(100% - 215px);
+    margin-left: 215px;
+  }
+
+  .problems-logo {
+    font-size: 20px;
+  }
+
+  .problems-logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .problems-nav-item {
+    font-size: 12px;
+  }
+
+  .problems-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .problems-hero h1 {
+    font-size: 36px;
+  }
+
+  .problem-table-head,
+  .problem-row {
+    grid-template-columns:
+      32px
+      minmax(220px, 2fr)
+      85px
+      105px
+      75px
+      65px
+      55px
+      36px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .problems-sidebar {
+    position: relative;
+
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+
+    display: none;
+  }
+
+  .problems-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .problems-topbar {
+    height: 70px;
+
+    padding: 0 14px;
+  }
+
+  .problems-search {
+    width: 100%;
+  }
+
+  .problems-top-actions {
+    display: none;
+  }
+
+  .problems-content {
+    padding: 25px 14px 35px;
+  }
+
+  .problems-hero {
+    min-height: auto;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .problems-hero h1 {
+    font-size: 36px;
+  }
+
+  .problems-streak {
+    width: 100%;
+  }
+
+  .problems-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .problems-filter-bar {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 8px;
+  }
+
+  .difficulty-tabs {
+    width: 100%;
+
+    overflow-x: auto;
+  }
+
+  .problem-filter-actions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .problems-list-container {
+    overflow-x: auto;
+  }
+
+  .problem-table-head,
+  .problem-row {
+    min-width: 850px;
+  }
+
+  .problem-pagination {
+    min-width: 850px;
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .problems-page::before,
+  .problems-page::after,
+  .problems-sidebar,
+  .problems-topbar,
+  .problems-content,
+  .problem-stat,
+  .problem-row {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =====================================================
+   PROBLEMS HERO - SPACING FIX
+   ===================================================== */
+
+.problems-hero {
+  min-height: auto !important;
+  height: auto !important;
+  padding-top: 55px !important;
+  padding-bottom: 35px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* Hero content */
+.problems-hero-content {
+  margin-bottom: 0 !important;
+}
+
+
+/* Stats cards ko hero ke close lao */
+.problems-stats {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+
+/* Individual stats row */
+.problems-stats-grid {
+  margin-top: 0 !important;
+}
+
+
+/* =====================================================
+   REMOVE EXTRA HEIGHT / SPACE
+   ===================================================== */
+
+.problems-page {
+  min-height: 100vh;
+}
+
+.problems-main {
+  min-height: auto !important;
+}
+
+
+/* Agar hero ke andar fixed height lagi hui hai */
+.problems-hero,
+.problems-hero-section {
+  max-height: none !important;
+}
+
+
+/* Desktop spacing */
+@media (min-width: 1000px) {
+
+  .problems-hero {
+    padding-top: 0px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .problems-stats,
+  .problems-stats-grid {
+    margin-top: 0 !important;
+  }
+}
+
+
+
+/* =========================================================
+   FIX — PROBLEM LIST SPACING
+   ========================================================= */
+
+.problems-list-container {
+  margin-top: 18px !important;
+  padding: 20px 22px 18px !important;
+}
+
+/* Header compact and properly aligned */
+.problems-list-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+}
+
+/* PROBLEMS small heading */
+.problems-list-header p {
+  margin: 0 0 4px !important;
+  padding: 0 !important;
+
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 1.4px !important;
+}
+
+/* Start Solving */
+.problems-list-header h2 {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-size: 23px !important;
+  line-height: 1.15 !important;
+}
+
+/* "10 problems" */
+.problems-list-header > span {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+/* Table starts closer to heading */
+.problem-table-head {
+  margin-top: 0 !important;
+}
+
+/* Remove accidental top spacing */
+.problem-rows {
+  margin-top: 0 !important;
+}
+
+/* =========================================================
+   IMPORTANT — REMOVE LARGE SPACE FROM PREVIOUS SECTIONS
+   ========================================================= */
+
+.problems-content {
+  padding-top: 22px !important;
+}
+
+.problems-hero {
+  margin-bottom: 22px !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+.problems-stats {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+.problems-filter-bar {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+/* Prevent hero from creating huge vertical area */
+.problems-hero > div:first-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   REDUCE GAP: STATS → FILTER BAR
+   ========================================================= */
+
+.problems-stats {
+  margin-bottom: 10px !important;
+}
+
+/* Filter bar immediately after stats */
+.problems-filter-bar {
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+}
+
+/* If the parent is creating extra vertical space */
+.problems-content {
+  gap: 0 !important;
+}
+
+/* Remove any forced height from the stats section */
+.problems-stats {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Remove extra padding around filter */
+.problems-filter-bar {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+/* =========================================================
+   IMPORTANT: PREVENT SPACE BETWEEN SECTIONS
+   ========================================================= */
+
+.problems-hero + .problems-stats {
+  margin-top: 0 !important;
+}
+
+.problems-stats + .problems-filter-bar {
+  margin-top: 0 !important;
+}
+
+/* Prevent flex/grid from distributing empty space */
+.problems-content,
+.problems-main-content {
+  justify-content: flex-start !important;
+  align-content: flex-start !important;
+}
+
+/* =========================================================
+   FILTER BAR — REMOVE EXCESS TOP SPACE
+   ========================================================= */
+
+.problems-filter-bar {
+  margin-top: 0 !important;
+  transform: translateY(-35px);
+}
+
+/* Keep the section after filter in the correct position */
+.problems-filter-bar + .problems-list-container {
+  margin-top: -35px !important;
+}
+
+
+
+/* Light theme for the dedicated problems workspace */
+[data-theme="light"] .problems-page { background: #f4f7fc; color: #111827; }
+[data-theme="light"] .problems-sidebar { background: linear-gradient(180deg,#fff,#f3f7fc); border-color: #dbe3ef; }
+[data-theme="light"] .problems-logo { color: #111827; }
+[data-theme="light"] .problems-nav-item { color: #475569; }
+[data-theme="light"] .problems-nav-item:hover { color: #1d4ed8; background: #e8f1ff; }
+[data-theme="light"] .problems-nav-item.active { color: #1d4ed8; background: #e5efff; border-color: #bfdbfe; }
+[data-theme="light"] .problems-nav-title,
+[data-theme="light"] .problems-sidebar-card p { color: #64748b; }
+[data-theme="light"] .problems-sidebar-card,
+[data-theme="light"] .problems-topbar,
+[data-theme="light"] .problems-filter-bar,
+[data-theme="light"] .problems-list-container,
+[data-theme="light"] .problems-streak,
+[data-theme="light"] .problem-stat { background: #fff; border-color: #dbe3ef; color: #1e293b; }
+[data-theme="light"] .problems-search,
+[data-theme="light"] .problems-search input,
+[data-theme="light"] .problems-icon-btn,
+[data-theme="light"] .problems-profile { background: #fff; border-color: #dbe3ef; color: #334155; }
+[data-theme="light"] .problems-content { color: #1e293b; }
+[data-theme="light"] .problems-hero h1,
+[data-theme="light"] .problems-list-header h2,
+[data-theme="light"] .problem-name,
+[data-theme="light"] .problems-profile strong { color: #111827; }
+[data-theme="light"] .problems-hero p,
+[data-theme="light"] .problem-table-head,
+[data-theme="light"] .problems-profile span,
+[data-theme="light"] .problem-row { color: #475569; }
+[data-theme="light"] .problem-row { border-color: #e2e8f0; }
+[data-theme="light"] .problem-row:hover { background: #f1f6ff; }
+[data-theme="light"] .problems-search input::placeholder { color: #94a3b8; }
+[data-theme="light"] .problems-page select,
+[data-theme="light"] .problems-page input { color: #1e293b; }
+[data-theme="light"] .problems-page::before,
+[data-theme="light"] .problems-page::after { opacity: .25; }

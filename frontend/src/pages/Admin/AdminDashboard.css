@@ -1,0 +1,2334 @@
+/* =========================================================
+   CODEARENA ADMIN DASHBOARD
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-dashboard {
+  min-height: 100vh;
+  width: 100%;
+
+  background: #050914;
+  color: #f5f7ff;
+
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 232px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #080d19;
+
+  border: 1px solid #1b2539;
+  border-radius: 0 12px 12px 0;
+
+  z-index: 100;
+}
+
+
+/* ---------- Logo ---------- */
+
+.sidebar-logo {
+  height: 80px;
+
+  padding: 0 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+.logo-symbol {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2979ff;
+
+  font-size: 35px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  color: #f5f7ff;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+
+  white-space: nowrap;
+}
+
+.logo-text span {
+  color: #370869;
+}
+
+.sidebar-divider {
+  width: 1px;
+  height: 31px;
+
+  margin-left: auto;
+  margin-right: 9px;
+
+  background: #44506a;
+}
+
+.sidebar-menu-icon {
+  width: 23px;
+  height: 23px;
+
+  color: #b9c1d4;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR NAV
+   ========================================================= */
+
+.sidebar-nav {
+  padding: 12px 9px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.sidebar-item {
+  width: 100%;
+  height: 51px;
+
+  padding: 0 19px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #cbd1df;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.sidebar-item svg {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+}
+
+.sidebar-item:hover {
+  background: rgba(117, 58, 255, 0.10);
+  color: #ffffff;
+}
+
+.sidebar-item.active {
+  background: linear-gradient(
+    90deg,
+    #3b187e,
+    #291665
+  );
+
+  color: #ffffff;
+
+  border-left: 2px solid #9a45ff;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.logout-button {
+  height: 53px;
+
+  margin-top: auto;
+  margin-left: 23px;
+  margin-right: 21px;
+  margin-bottom: 22px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ff4e5d;
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+.logout-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.admin-main {
+  width: calc(100% - 232px);
+
+  margin-left: 232px;
+
+  padding: 0 22px 25px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-header {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-spacer {
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-box {
+  width: 318px;
+  height: 47px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #202c44;
+  border-radius: 12px;
+
+  background: #080d19;
+}
+
+.search-box svg {
+  width: 21px;
+  height: 21px;
+
+  color: #c8d0e1;
+
+  flex-shrink: 0;
+}
+
+.search-box input {
+  width: 100%;
+
+  margin-left: 12px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+.search-box input::placeholder {
+  color: #9da6ba;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.notification-button {
+  position: relative;
+
+  width: 30px;
+  height: 40px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #cbd2e2;
+
+  cursor: pointer;
+}
+
+.notification-button svg {
+  width: 26px;
+  height: 26px;
+}
+
+.notification-button span {
+  position: absolute;
+
+  top: -1px;
+  right: -2px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f3344e;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ADMIN PROFILE
+   ========================================================= */
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #6d20e8,
+    #7133d7
+  );
+
+  color: #ffffff;
+
+  flex-shrink: 0;
+}
+
+.admin-avatar svg {
+  width: 25px;
+  height: 25px;
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.admin-info strong {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.admin-info small {
+  color: #aeb7ca;
+
+  font-size: 13px;
+}
+
+.profile-arrow {
+  width: 18px;
+  height: 18px;
+
+  margin-left: 24px;
+
+  color: #c9d0df;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.page-heading {
+  width: 100%;
+  min-height: 73px;
+
+  padding: 0 2px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.page-heading h1 {
+  margin: -4px 0 6px;
+
+  color: #f5f7ff;
+
+  font-size: 29px;
+  line-height: 1.1;
+
+  font-weight: 700;
+}
+
+.page-heading p {
+  margin: 0;
+
+  color: #d0d6e4;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   DATE FILTER
+   ========================================================= */
+
+.date-filter {
+  width: 286px;
+  height: 43px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  border: 1px solid #293650;
+  border-radius: 11px;
+
+  background: #080d19;
+
+  color: #e3e7f0;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.date-filter svg:first-child {
+  width: 18px;
+  height: 18px;
+}
+
+.date-filter svg:last-child {
+  width: 16px;
+  height: 16px;
+
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   OVERVIEW
+   ========================================================= */
+
+.overview-section {
+  width: 100%;
+
+  padding: 0 13px 13px;
+
+  border: 1px solid #202c42;
+  border-radius: 13px;
+
+  background: #080e1b;
+}
+
+.overview-section > h2 {
+  margin: 17px 5px 9px;
+
+  color: #f1f3f8;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.stats-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  column-gap: 22px;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.stat-card {
+  position: relative;
+
+  width: 100%;
+  height: 169px;
+
+  padding: 20px 23px;
+
+  min-width: 0;
+
+  border: 1px solid #202c42;
+  border-radius: 12px;
+
+  background: #080e1b;
+
+  overflow: hidden;
+}
+
+.stat-top {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 22px;
+
+  min-width: 0;
+}
+
+.stat-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  font-size: 29px;
+
+  flex-shrink: 0;
+}
+
+.stat-icon.purple {
+  background: #3e178d;
+  color: #d8c6ff;
+}
+
+.stat-icon.blue {
+  background: #0754cc;
+  color: #b9d5ff;
+}
+
+.stat-icon.green {
+  background: #006b35;
+  color: #20e67d;
+}
+
+.stat-icon.orange {
+  background: #955b00;
+  color: #ffb500;
+}
+
+.stat-content {
+  min-width: 0;
+}
+
+.stat-content p {
+  margin: 1px 0 5px;
+
+  color: #d4dae7;
+
+  font-size: 16px;
+
+  white-space: nowrap;
+}
+
+.stat-content h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 30px;
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.growth {
+  margin-top: 14px;
+  margin-left: 78px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.growth span {
+  color: #19ed6b;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.growth small {
+  color: #8f98ab;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+}
+
+
+/* ---------- Mini Charts ---------- */
+
+.mini-chart {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+
+  height: 32px;
+}
+
+.mini-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mini-chart polyline {
+  fill: none;
+
+  stroke-width: 2;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.stat-card.purple .mini-chart polyline {
+  stroke: #973dff;
+}
+
+.stat-card.blue .mini-chart polyline {
+  stroke: #147cff;
+}
+
+.stat-card.green .mini-chart polyline {
+  stroke: #13d969;
+}
+
+.stat-card.orange .mini-chart polyline {
+  stroke: #ffa900;
+}
+
+
+/* =========================================================
+   MIDDLE SECTION
+   ========================================================= */
+
+/*
+   THIS IS THE IMPORTANT PART.
+
+   The two cards use the COMPLETE available width.
+
+   No fixed width.
+   No percentage width.
+   No artificial empty space.
+*/
+
+.middle-grid {
+  width: 100%;
+
+  margin-top: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(0, 0.92fr);
+
+  gap: 0;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   COMMON CARD
+   ========================================================= */
+
+.dashboard-card {
+  min-width: 0;
+
+  border: 1px solid #202c42;
+
+  background: #080e1b;
+}
+
+
+/* =========================================================
+   SUBMISSION CARD
+   ========================================================= */
+
+.submission-card {
+  width: 100%;
+  height: 340px;
+
+  border-radius: 13px 0 0 13px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ACTIVITY CARD
+   ========================================================= */
+
+.activity-card {
+  width: 100%;
+  height: 340px;
+
+  border-radius: 0 13px 13px 0;
+
+  /*
+     Prevent double border in the center.
+  */
+  border-left: none;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.card-heading {
+  width: 100%;
+  height: 60px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-heading h2 {
+  margin: 0;
+
+  color: #f2f4f8;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.view-all {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #a047ff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.period-select {
+  height: 35px;
+
+  padding: 0 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  border: 1px solid #26334b;
+  border-radius: 8px;
+
+  background: #0a1020;
+
+  color: #edf0f7;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.period-select svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================================
+   SUBMISSION CHART
+   ========================================================= */
+
+.large-chart {
+  width: 100%;
+  height: 234px;
+
+  padding: 2px 28px 0 18px;
+
+  display: flex;
+
+  min-width: 0;
+}
+
+.chart-y-axis {
+  width: 38px;
+
+  padding: 2px 0 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: #b9c1d0;
+
+  font-size: 12px;
+
+  flex-shrink: 0;
+}
+
+.chart-area {
+  position: relative;
+
+  flex: 1;
+
+  min-width: 0;
+
+  margin-left: 8px;
+}
+
+.chart-grid-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  border-top: 1px dashed #1d293d;
+}
+
+.line-1 {
+  top: 2px;
+}
+
+.line-2 {
+  top: 45px;
+}
+
+.line-3 {
+  top: 89px;
+}
+
+.line-4 {
+  top: 133px;
+}
+
+.line-5 {
+  top: 177px;
+}
+
+.submission-svg {
+  position: absolute;
+
+  top: 2px;
+  left: 0;
+
+  width: 100%;
+  height: 181px;
+
+  overflow: visible;
+}
+
+.total-line {
+  fill: none;
+
+  stroke: #9c3dff;
+  stroke-width: 2.2;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.accepted-line {
+  fill: none;
+
+  stroke: #18d969;
+  stroke-width: 2.2;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.total-dot {
+  fill: #9c3dff;
+}
+
+.accepted-dot {
+  fill: #18d969;
+}
+
+
+/* ---------- X Axis ---------- */
+
+.chart-x-axis {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 4px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #d0d5e0;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* ---------- Legend ---------- */
+
+.chart-legend {
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  color: #e4e7ef;
+
+  font-size: 13px;
+}
+
+.chart-legend div {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.chart-legend i {
+  width: 12px;
+  height: 5px;
+
+  border-radius: 5px;
+}
+
+.legend-purple {
+  background: #963dff;
+}
+
+.legend-green {
+  background: #16d968;
+}
+
+
+/* =========================================================
+   RECENT ACTIVITY
+   ========================================================= */
+
+.activity-list {
+  width: 100%;
+
+  padding: 0 19px;
+}
+
+.activity-item {
+  width: 100%;
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.activity-icon {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  font-size: 21px;
+
+  flex-shrink: 0;
+}
+
+.activity-icon.purple {
+  background: #3d188b;
+  color: #d7c4ff;
+}
+
+.activity-icon.blue {
+  background: #0754cc;
+  color: #c0dcff;
+}
+
+.activity-icon.green {
+  background: #006a35;
+  color: #22e87c;
+}
+
+.activity-icon.orange {
+  background: #955c00;
+  color: #ffc01c;
+}
+
+.activity-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.activity-content strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #f2f4f8;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.activity-content p {
+  margin: 0;
+
+  color: #aeb7c9;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.activity-time {
+  margin-left: auto;
+
+  color: #c2c8d6;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RECENT PROBLEMS
+   ========================================================= */
+
+.problems-card {
+  width: 100%;
+
+  margin-top: 18px;
+
+  min-width: 0;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+.problems-card .card-heading {
+  height: 48px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.problems-card table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: auto;
+
+  font-size: 13px;
+}
+
+.problems-card thead {
+  background: #101728;
+}
+
+.problems-card th {
+  height: 40px;
+
+  padding: 0 17px;
+
+  color: #e0e4ed;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.problems-card td {
+  height: 48px;
+
+  padding: 0 17px;
+
+  color: #f0f2f7;
+
+  white-space: nowrap;
+}
+
+.problems-card tbody tr {
+  border-bottom: 1px solid #1b2638;
+}
+
+.problems-card tbody tr:last-child {
+  border-bottom: none;
+}
+
+.problem-title {
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   DIFFICULTY
+   ========================================================= */
+
+.difficulty {
+  min-width: 61px;
+  height: 32px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+}
+
+.difficulty.easy {
+  border: 1px solid #075d34;
+
+  background: rgba(0, 133, 64, 0.17);
+
+  color: #17e86b;
+}
+
+.difficulty.medium {
+  border: 1px solid #745000;
+
+  background: rgba(170, 115, 0, 0.17);
+
+  color: #ffb600;
+}
+
+.difficulty.hard {
+  border: 1px solid #771f2b;
+
+  background: rgba(180, 30, 48, 0.13);
+
+  color: #ff5966;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.action {
+  width: 38px;
+  height: 34px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.action.view {
+  border: 1px solid #064da8;
+
+  background: rgba(0, 82, 190, 0.18);
+
+  color: #1485ff;
+}
+
+.action.edit {
+  border: 1px solid #704d00;
+
+  background: rgba(142, 95, 0, 0.17);
+
+  color: #ffb400;
+}
+
+.action.delete {
+  border: 1px solid #79202c;
+
+  background: rgba(180, 28, 45, 0.13);
+
+  color: #ff4054;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .admin-sidebar {
+    width: 215px;
+  }
+
+  .admin-main {
+    width: calc(100% - 215px);
+    margin-left: 215px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    row-gap: 14px;
+    column-gap: 14px;
+  }
+
+  .search-box {
+    width: 270px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .admin-sidebar {
+    width: 72px;
+  }
+
+  .admin-main {
+    width: calc(100% - 72px);
+    margin-left: 72px;
+  }
+
+  .logo-text,
+  .sidebar-divider,
+  .sidebar-menu-icon,
+  .sidebar-item span,
+  .logout-button span {
+    display: none;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sidebar-nav {
+    padding: 12px 8px;
+  }
+
+  .sidebar-item {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logout-button {
+    justify-content: center;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .search-box {
+    width: 230px;
+  }
+
+  .admin-info,
+  .profile-arrow {
+    display: none;
+  }
+
+  .header-right {
+    gap: 16px;
+  }
+
+  /*
+     Tablet par vertical stack.
+  */
+
+  .middle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-card {
+    border-radius: 13px 13px 0 0;
+  }
+
+  .activity-card {
+    border-left: 1px solid #202c42;
+    border-top: none;
+
+    border-radius: 0 0 13px 13px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .admin-main {
+    padding: 0 12px 20px;
+  }
+
+  .admin-header {
+    height: 68px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 180px;
+    height: 43px;
+  }
+
+  .page-heading {
+    flex-direction: column;
+
+    min-height: auto;
+
+    gap: 14px;
+
+    margin-bottom: 15px;
+  }
+
+  .page-heading h1 {
+    font-size: 25px;
+  }
+
+  .page-heading p {
+    font-size: 15px;
+  }
+
+  .date-filter {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 12px;
+  }
+
+  .overview-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .middle-grid {
+    margin-top: 14px;
+  }
+
+  .submission-card,
+  .activity-card {
+    height: auto;
+    min-height: 340px;
+  }
+
+  .large-chart {
+    padding-right: 12px;
+  }
+
+  .chart-x-axis {
+    font-size: 10px;
+  }
+
+  .chart-legend {
+    gap: 15px;
+    font-size: 11px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* =========================================================
+   FINAL DASHBOARD CARD FIX
+   ========================================================= */
+
+.middle-grid {
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+
+    gap: 18px !important;
+
+    margin-top: 18px !important;
+
+    align-items: stretch !important;
+}
+
+
+/* Submission Overview */
+
+.submission-card {
+    width: 100% !important;
+    height: 340px !important;
+
+    margin: 0 !important;
+
+    border-radius: 12px !important;
+
+    border: 1px solid #202c42 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Recent Activity */
+
+.activity-card {
+    width: 100% !important;
+    height: 340px !important;
+
+    margin: 0 !important;
+
+    border-radius: 12px !important;
+
+    border: 1px solid #202c42 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Recent Problems */
+
+.problems-card {
+    width: 100% !important;
+
+    margin-top: 18px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    border-radius: 12px !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Table must use complete card width */
+
+.problems-card .table-wrapper {
+    width: 100% !important;
+}
+
+.problems-card table {
+    width: 100% !important;
+}
+
+
+/* Remove unwanted narrow sizing */
+
+.submission-card,
+.activity-card,
+.problems-card {
+    min-width: 0 !important;
+    max-width: none !important;
+}
+
+
+/* =========================================================
+   DESKTOP ONLY
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .middle-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 18px !important;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .middle-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .submission-card,
+    .activity-card {
+        height: 340px !important;
+        border-radius: 12px !important;
+    }
+
+}
+
+/* =========================================================
+   FIX: BOTTOM CONTENT CUTTING
+   ========================================================= */
+
+.submission-card,
+.activity-card {
+    height: 352px !important;
+    overflow: hidden !important;
+}
+
+
+/* Submission chart area ko compact karo */
+
+.large-chart {
+    height: 205px !important;
+    padding-top: 0 !important;
+}
+
+
+/* Graph ki actual height */
+
+.submission-svg {
+    height: 160px !important;
+}
+
+
+/* X-axis graph ke andar properly rahe */
+
+.chart-x-axis {
+    bottom: 0 !important;
+}
+
+
+/* Legend ke liye proper space */
+
+.chart-legend {
+    height: 40px !important;
+}
+
+
+/* Activity list ko card ke andar properly fit karo */
+
+.activity-list {
+    padding-bottom: 5px !important;
+}
+
+.activity-item {
+    min-height: 54px !important;
+    height: 54px !important;
+}
+
+
+/* Recent Problems ka position */
+
+.problems-card {
+    margin-top: 18px !important;
+}
+/* Remove hamburger / sidebar toggle button */
+.menu-toggle,
+.sidebar-toggle,
+.hamburger,
+.mobile-menu-btn {
+    display: none !important;
+}
+
+
+/* =========================================================
+   ✨ ADMIN DASHBOARD — PREMIUM GLOW EFFECT
+   Add this at the VERY END of AdminDashboard.css
+   ========================================================= */
+
+
+/* ---------- MAIN DASHBOARD BACKGROUND ---------- */
+
+.admin-dashboard {
+  background:
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(123, 47, 255, 0.07),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 55%,
+      rgba(0, 120, 255, 0.035),
+      transparent 25%
+    );
+}
+
+
+/* ---------- COMMON CARD GLOW ---------- */
+
+.dashboard-card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 15, 29, 0.98),
+      rgba(5, 10, 21, 0.98)
+    ) !important;
+
+  border: 1px solid rgba(48, 65, 94, 0.75) !important;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Subtle purple glow on hover */
+
+.dashboard-card:hover {
+  border-color: rgba(151, 61, 255, 0.38) !important;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(151, 61, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+
+/* ---------- OVERVIEW STAT CARDS ---------- */
+
+.stat-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 17, 32, 0.98),
+      rgba(6, 12, 24, 0.98)
+    ) !important;
+
+  border: 1px solid rgba(39, 54, 81, 0.85) !important;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Small glow inside every stat card */
+
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: -55px;
+  bottom: -65px;
+
+  border-radius: 50%;
+
+  filter: blur(35px);
+
+  opacity: 0.14;
+
+  pointer-events: none;
+}
+
+
+/* Individual glow colors */
+
+.stat-card.purple::after {
+  background: #973dff;
+}
+
+.stat-card.blue::after {
+  background: #147cff;
+}
+
+.stat-card.green::after {
+  background: #13d969;
+}
+
+.stat-card.orange::after {
+  background: #ffa900;
+}
+
+
+/* Hover */
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(90, 110, 145, 0.9) !important;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(100, 80, 255, 0.07);
+}
+
+
+/* ---------- STAT ICONS ---------- */
+
+.stat-icon {
+  box-shadow:
+    0 0 18px rgba(151, 61, 255, 0.10);
+}
+
+.stat-card.blue .stat-icon {
+  box-shadow:
+    0 0 18px rgba(20, 124, 255, 0.14);
+}
+
+.stat-card.green .stat-icon {
+  box-shadow:
+    0 0 18px rgba(19, 217, 105, 0.14);
+}
+
+.stat-card.orange .stat-icon {
+  box-shadow:
+    0 0 18px rgba(255, 169, 0, 0.14);
+}
+
+
+/* ---------- MINI CHART GLOW ---------- */
+
+.mini-chart polyline {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+
+/* ---------- SUBMISSION CHART ---------- */
+
+.submission-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* Chart lines glow */
+
+.submission-card svg polyline {
+  filter:
+    drop-shadow(0 0 3px currentColor)
+    drop-shadow(0 0 6px currentColor);
+}
+
+
+/* Chart points glow */
+
+.submission-card svg circle {
+  filter:
+    drop-shadow(0 0 4px currentColor);
+}
+
+
+/* ---------- PERIOD SELECT ---------- */
+
+.period-select {
+  background: rgba(10, 16, 32, 0.85) !important;
+
+  border-color: rgba(50, 67, 96, 0.9) !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.period-select:hover {
+  border-color: rgba(151, 61, 255, 0.55) !important;
+
+  box-shadow:
+    0 0 14px rgba(151, 61, 255, 0.10);
+}
+
+
+/* ---------- VIEW ALL ---------- */
+
+.view-all {
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.view-all:hover {
+  color: #c17aff !important;
+
+  text-shadow:
+    0 0 10px rgba(160, 71, 255, 0.55);
+}
+
+
+/* ---------- RECENT ACTIVITY ---------- */
+
+.activity-item {
+  position: relative;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-item:hover {
+  background: rgba(151, 61, 255, 0.045);
+
+  transform: translateX(2px);
+
+  border-radius: 8px;
+}
+
+
+/* Activity icons glow */
+
+.activity-icon {
+  box-shadow:
+    0 0 12px rgba(151, 61, 255, 0.10);
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-item:hover .activity-icon {
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 17px rgba(151, 61, 255, 0.18);
+}
+
+
+/* ---------- RECENT PROBLEMS ---------- */
+
+.problems-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* Table rows */
+
+.problems-card tbody tr {
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.problems-card tbody tr:hover {
+  background: rgba(151, 61, 255, 0.035);
+
+  box-shadow:
+    inset 2px 0 0 rgba(151, 61, 255, 0.55);
+}
+
+
+/* Difficulty badges subtle glow */
+
+.difficulty.easy {
+  box-shadow:
+    0 0 10px rgba(0, 220, 110, 0.08);
+}
+
+.difficulty.medium {
+  box-shadow:
+    0 0 10px rgba(255, 170, 0, 0.08);
+}
+
+.difficulty.hard {
+  box-shadow:
+    0 0 10px rgba(255, 50, 80, 0.08);
+}
+
+
+/* ---------- PAGE HEADING ---------- */
+
+.page-heading h1 {
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.06);
+}
+
+
+/* ---------- SEARCH BOX ---------- */
+
+.search-box {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: rgba(151, 61, 255, 0.55) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(151, 61, 255, 0.07),
+    0 0 18px rgba(151, 61, 255, 0.08);
+}/* =========================================================
+   ✨ ADMIN DASHBOARD — PREMIUM GLOW EFFECT
+   Add this at the VERY END of AdminDashboard.css
+   ========================================================= */
+
+
+/* ---------- MAIN DASHBOARD BACKGROUND ---------- */
+
+.admin-dashboard {
+  background:
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(123, 47, 255, 0.07),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 55%,
+      rgba(0, 120, 255, 0.035),
+      transparent 25%
+    );
+}
+
+
+/* ---------- COMMON CARD GLOW ---------- */
+
+.dashboard-card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 15, 29, 0.98),
+      rgba(5, 10, 21, 0.98)
+    ) !important;
+
+  border: 1px solid rgba(48, 65, 94, 0.75) !important;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Subtle purple glow on hover */
+
+.dashboard-card:hover {
+  border-color: rgba(151, 61, 255, 0.38) !important;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(151, 61, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+
+/* ---------- OVERVIEW STAT CARDS ---------- */
+
+.stat-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 17, 32, 0.98),
+      rgba(6, 12, 24, 0.98)
+    ) !important;
+
+  border: 1px solid rgba(39, 54, 81, 0.85) !important;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Small glow inside every stat card */
+
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: -55px;
+  bottom: -65px;
+
+  border-radius: 50%;
+
+  filter: blur(35px);
+
+  opacity: 0.14;
+
+  pointer-events: none;
+}
+
+
+/* Individual glow colors */
+
+.stat-card.purple::after {
+  background: #973dff;
+}
+
+.stat-card.blue::after {
+  background: #147cff;
+}
+
+.stat-card.green::after {
+  background: #13d969;
+}
+
+.stat-card.orange::after {
+  background: #ffa900;
+}
+
+
+/* Hover */
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(90, 110, 145, 0.9) !important;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(100, 80, 255, 0.07);
+}
+
+
+/* ---------- STAT ICONS ---------- */
+
+.stat-icon {
+  box-shadow:
+    0 0 18px rgba(151, 61, 255, 0.10);
+}
+
+.stat-card.blue .stat-icon {
+  box-shadow:
+    0 0 18px rgba(20, 124, 255, 0.14);
+}
+
+.stat-card.green .stat-icon {
+  box-shadow:
+    0 0 18px rgba(19, 217, 105, 0.14);
+}
+
+.stat-card.orange .stat-icon {
+  box-shadow:
+    0 0 18px rgba(255, 169, 0, 0.14);
+}
+
+
+/* ---------- MINI CHART GLOW ---------- */
+
+.mini-chart polyline {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+
+/* ---------- SUBMISSION CHART ---------- */
+
+.submission-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* Chart lines glow */
+
+.submission-card svg polyline {
+  filter:
+    drop-shadow(0 0 3px currentColor)
+    drop-shadow(0 0 6px currentColor);
+}
+
+
+/* Chart points glow */
+
+.submission-card svg circle {
+  filter:
+    drop-shadow(0 0 4px currentColor);
+}
+
+
+/* ---------- PERIOD SELECT ---------- */
+
+.period-select {
+  background: rgba(10, 16, 32, 0.85) !important;
+
+  border-color: rgba(50, 67, 96, 0.9) !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.period-select:hover {
+  border-color: rgba(151, 61, 255, 0.55) !important;
+
+  box-shadow:
+    0 0 14px rgba(151, 61, 255, 0.10);
+}
+
+
+/* ---------- VIEW ALL ---------- */
+
+.view-all {
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.view-all:hover {
+  color: #c17aff !important;
+
+  text-shadow:
+    0 0 10px rgba(160, 71, 255, 0.55);
+}
+
+
+/* ---------- RECENT ACTIVITY ---------- */
+
+.activity-item {
+  position: relative;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-item:hover {
+  background: rgba(151, 61, 255, 0.045);
+
+  transform: translateX(2px);
+
+  border-radius: 8px;
+}
+
+
+/* Activity icons glow */
+
+.activity-icon {
+  box-shadow:
+    0 0 12px rgba(151, 61, 255, 0.10);
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-item:hover .activity-icon {
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 17px rgba(151, 61, 255, 0.18);
+}
+
+
+/* ---------- RECENT PROBLEMS ---------- */
+
+.problems-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* Table rows */
+
+.problems-card tbody tr {
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.problems-card tbody tr:hover {
+  background: rgba(151, 61, 255, 0.035);
+
+  box-shadow:
+    inset 2px 0 0 rgba(151, 61, 255, 0.55);
+}
+
+
+/* Difficulty badges subtle glow */
+
+.difficulty.easy {
+  box-shadow:
+    0 0 10px rgba(0, 220, 110, 0.08);
+}
+
+.difficulty.medium {
+  box-shadow:
+    0 0 10px rgba(255, 170, 0, 0.08);
+}
+
+.difficulty.hard {
+  box-shadow:
+    0 0 10px rgba(255, 50, 80, 0.08);
+}
+
+
+/* ---------- PAGE HEADING ---------- */
+
+.page-heading h1 {
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.06);
+}
+
+
+/* ---------- SEARCH BOX ---------- */
+
+.search-box {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: rgba(151, 61, 255, 0.55) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(151, 61, 255, 0.07),
+    0 0 18px rgba(151, 61, 255, 0.08);
+}

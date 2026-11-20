@@ -1,0 +1,681 @@
+/* =========================================================
+   ADMIN USERS PAGE
+   ========================================================= */
+
+.admin-users-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 48px 6%;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(145, 70, 255, 0.10), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(75, 55, 180, 0.08), transparent 35%),
+    #050816;
+  color: #f5f7ff;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-users-header {
+  max-width: 1220px;
+  margin: 0 auto 34px;
+}
+
+.admin-users-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-users-heading > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-users-heading span {
+  color: #a855f7;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.admin-users-heading h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.admin-users-heading p {
+  margin: 8px 0 0;
+  color: #7180a8;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.admin-users-back {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 13px;
+
+  background: rgba(15, 22, 45, 0.75);
+  color: #b8a2ff;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.admin-users-back:hover {
+  color: #ffffff;
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.12);
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.18);
+  transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.admin-users-container {
+  max-width: 1220px;
+  margin: 0 auto;
+
+  padding: 30px 32px 34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 22, 45, 0.90),
+      rgba(7, 12, 28, 0.96)
+    );
+
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.admin-users-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.admin-users-title > svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  color: #a855f7;
+
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 13px;
+
+  background: rgba(139, 92, 246, 0.08);
+
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.25));
+}
+
+.admin-users-title h2 {
+  margin: 0 0 5px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.admin-users-title p {
+  margin: 0;
+
+  color: #65749b;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.admin-users-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 0;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.admin-users-search {
+  width: 370px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(100, 116, 160, 0.18);
+  border-radius: 10px;
+
+  background: rgba(3, 8, 22, 0.72);
+
+  transition: all 0.25s ease;
+}
+
+.admin-users-search:focus-within {
+  border-color: rgba(139, 92, 246, 0.65);
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.08),
+    0 0 22px rgba(139, 92, 246, 0.08);
+}
+
+.admin-users-search svg {
+  flex-shrink: 0;
+  color: #61719a;
+  font-size: 17px;
+}
+
+.admin-users-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #f1f5ff;
+  font-size: 13px;
+}
+
+.admin-users-search input::placeholder {
+  color: #52617f;
+}
+
+
+/* =========================================================
+   USERS TABLE
+   ========================================================= */
+
+.admin-users-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid rgba(100, 116, 160, 0.12);
+  border-radius: 14px;
+
+  background: rgba(4, 9, 24, 0.45);
+}
+
+.admin-users-table {
+  width: 100%;
+  min-width: 950px;
+
+  border-collapse: collapse;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.admin-users-table thead {
+  background: rgba(139, 92, 246, 0.055);
+}
+
+.admin-users-table th {
+  padding: 15px 14px;
+
+  color: #7d8bab;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.admin-users-table td {
+  padding: 16px 14px;
+
+  color: #dce2f2;
+
+  font-size: 13px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+
+  vertical-align: middle;
+}
+
+.admin-users-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.admin-users-table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.045);
+}
+
+.admin-users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   USER COLUMN
+   ========================================================= */
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 220px;
+}
+
+.admin-user-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.20),
+      rgba(99, 102, 241, 0.12)
+    );
+
+  border: 1px solid rgba(168, 85, 247, 0.25);
+
+  color: #c084fc;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.admin-user-name {
+  color: #f4f6ff;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+.admin-user-email {
+  color: #65749a;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ROLE
+   ========================================================= */
+
+.admin-role-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: rgba(99, 102, 241, 0.10);
+  color: #9da5ff;
+
+  border: 1px solid rgba(99, 102, 241, 0.20);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.admin-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-status.active {
+  color: #4ade80;
+}
+
+.admin-status.inactive {
+  color: #f87171;
+}
+
+.admin-status::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow: 0 0 8px currentColor;
+}
+
+
+/* =========================================================
+   STAT VALUES
+   ========================================================= */
+
+.admin-user-stat {
+  color: #cbd5e1;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-user-stat-icon {
+  color: #a855f7;
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   STREAK
+   ========================================================= */
+
+.admin-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #fbbf24;
+
+  font-weight: 650;
+}
+
+.admin-streak svg {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   VERIFIED
+   ========================================================= */
+
+.admin-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-verified.verified {
+  color: #4ade80;
+}
+
+.admin-verified.not-verified {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR STATE
+   ========================================================= */
+
+.admin-users-empty {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  border: 1px dashed rgba(100, 116, 160, 0.20);
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(139, 92, 246, 0.06),
+      transparent 60%
+    );
+
+  text-align: center;
+}
+
+.admin-users-empty > svg {
+  width: 52px;
+  height: 52px;
+
+  padding: 13px;
+  box-sizing: border-box;
+
+  color: #a855f7;
+
+  border-radius: 14px;
+
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+
+  margin-bottom: 16px;
+}
+
+.admin-users-empty h3 {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+}
+
+.admin-users-empty p {
+  margin: 0;
+
+  color: #637294;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.admin-users-table-wrapper::-webkit-scrollbar {
+  height: 7px;
+}
+
+.admin-users-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.admin-users-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 10px;
+}
+
+.admin-users-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .admin-users-page {
+    padding: 35px 20px;
+  }
+
+  .admin-users-container {
+    padding: 24px;
+  }
+
+  .admin-users-heading h1 {
+    font-size: 30px;
+  }
+
+  .admin-users-search {
+    width: 320px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .admin-users-page {
+    padding: 28px 14px;
+  }
+
+  .admin-users-heading {
+    gap: 12px;
+  }
+
+  .admin-users-back {
+    width: 42px;
+    height: 42px;
+  }
+
+  .admin-users-heading h1 {
+    font-size: 25px;
+  }
+
+  .admin-users-heading p {
+    font-size: 12px;
+  }
+
+  .admin-users-container {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .admin-users-title h2 {
+    font-size: 18px;
+  }
+
+  .admin-users-toolbar {
+    padding: 20px 0;
+  }
+
+  .admin-users-search {
+    width: 100%;
+  }
+
+  .admin-users-table-wrapper {
+    margin-top: 2px;
+  }
+}
+
+
+/* =========================================================
+   VIEW USER BUTTON
+   ========================================================= */
+
+.admin-user-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  border-radius: 8px;
+
+  background: rgba(139, 92, 246, 0.08);
+  color: #b78cff;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.admin-user-view-btn svg {
+  font-size: 14px;
+}
+
+.admin-user-view-btn:hover {
+  color: #ffffff;
+
+  background: rgba(139, 92, 246, 0.16);
+  border-color: rgba(168, 85, 247, 0.65);
+
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.15);
+
+  transform: translateY(-1px);
+}

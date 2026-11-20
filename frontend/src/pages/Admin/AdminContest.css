@@ -1,0 +1,401 @@
+.admin-contest-page {
+  min-height: 100vh;
+  background: #0b0f19;
+  color: #ffffff;
+  padding: 32px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.admin-contest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.admin-contest-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-contest-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #9ca6bb;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.admin-contest-back:hover {
+  color: #ffffff;
+}
+
+.admin-contest-header h1 {
+  margin: 18px 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.admin-contest-header p {
+  margin: 0;
+  color: #8b93a7;
+  font-size: 14px;
+}
+
+/* =========================
+   CREATE BUTTON
+========================= */
+
+.admin-contest-create-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  background: #6c63ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-contest-create-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.admin-contest-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.contest-stat-card {
+  background: #111625;
+  border: 1px solid #202638;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.contest-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contest-stat-content span {
+  color: #8b93a7;
+  font-size: 13px;
+}
+
+.contest-stat-content strong {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.admin-contest-section {
+  background: #111625;
+  border: 1px solid #202638;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-contest-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  border-bottom: 1px solid #202638;
+}
+
+.admin-contest-section-header h2 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.admin-contest-section-header p {
+  margin: 0;
+  color: #8b93a7;
+  font-size: 13px;
+}
+
+/* =========================
+   CONTEST LIST
+========================= */
+
+.admin-contest-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   CONTEST CARD
+========================= */
+
+.admin-contest-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #202638;
+  transition: background 0.2s ease;
+}
+
+.admin-contest-card:last-child {
+  border-bottom: none;
+}
+
+.admin-contest-card:hover {
+  background: #151b2b;
+}
+
+.admin-contest-card-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.admin-contest-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-contest-card-title-row h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.admin-contest-description {
+  margin: 10px 0 16px;
+  color: #8b93a7;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.contest-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.contest-status-upcoming {
+  background: rgba(108, 99, 255, 0.15);
+  color: #9b94ff;
+}
+
+.contest-status-running {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.contest-status-ended {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* =========================
+   DATE / TIME
+========================= */
+
+.admin-contest-time-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.admin-contest-time-info > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #9ca6bb;
+  font-size: 12px;
+}
+
+.admin-contest-time-info svg {
+  color: #6c63ff;
+  font-size: 14px;
+}
+
+/* =========================
+   CARD ACTIONS
+========================= */
+
+.admin-contest-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contest-edit-btn,
+.contest-delete-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.contest-edit-btn {
+  border: 1px solid #2a3145;
+  background: transparent;
+  color: #9ca6bb;
+}
+
+.contest-edit-btn:hover {
+  background: #1d2538;
+  color: #ffffff;
+}
+
+.contest-delete-btn {
+  border: 1px solid #3a252c;
+  background: transparent;
+  color: #ef6b7a;
+}
+
+.contest-delete-btn:hover {
+  background: rgba(239, 107, 122, 0.1);
+}
+
+/* =========================
+   EMPTY / LOADING / ERROR
+========================= */
+
+.admin-contest-empty {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 30px;
+}
+
+.admin-contest-empty-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  background: #1a2032;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #8f88ff;
+  font-size: 25px;
+}
+
+.admin-contest-empty h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.admin-contest-empty p {
+  max-width: 450px;
+  margin: 0 0 24px;
+  color: #8b93a7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .admin-contest-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-contest-page {
+    padding: 20px;
+  }
+
+  .admin-contest-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .admin-contest-header > .admin-contest-create-btn {
+    width: 100%;
+  }
+
+  .admin-contest-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-contest-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-contest-card-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .admin-contest-time-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-contest-section-header {
+    padding: 18px;
+  }
+
+  .admin-contest-card {
+    padding: 18px;
+  }
+
+  .admin-contest-card-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

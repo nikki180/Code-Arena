@@ -1,0 +1,19 @@
+package com.coding.platform.dashboard.dto;
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SubmissionHeatmapResponse {
+
+    private LocalDate date;
+
+    private Integer submissionCount;
+}

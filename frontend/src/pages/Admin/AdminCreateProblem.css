@@ -1,0 +1,409 @@
+.admin-create-page {
+  min-height: 100vh;
+  padding: 40px 5%;
+  background:
+    radial-gradient(
+      circle at 15% 5%,
+      rgba(124, 58, 237, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(168, 85, 247, 0.07),
+      transparent 30%
+    ),
+    #050816;
+  color: #f8fafc;
+}
+
+
+/* ================= HEADER ================= */
+
+.admin-create-header {
+  margin-bottom: 32px;
+}
+
+.admin-create-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-back-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  border-radius: 12px;
+
+  background: rgba(15, 23, 42, 0.75);
+  color: #c4b5fd;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.admin-back-btn:hover {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: #8b5cf6;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+  transform: translateX(-2px);
+}
+
+.admin-page-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #a855f7;
+}
+
+.admin-create-heading h1 {
+  margin: 5px 0;
+  font-size: 32px;
+  font-weight: 750;
+}
+
+.admin-create-heading p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+
+/* ================= FORM ================= */
+
+.admin-create-form {
+  width: 100%;
+  max-width: 1150px;
+}
+
+
+/* ================= SECTION ================= */
+
+.create-section {
+  position: relative;
+
+  margin-bottom: 24px;
+  padding: 26px;
+
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 18px;
+
+  background: rgba(8, 13, 29, 0.82);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    inset 0 0 30px rgba(124, 58, 237, 0.025);
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+}
+
+.create-section:hover {
+  border-color: rgba(139, 92, 246, 0.32);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(124, 58, 237, 0.06);
+}
+
+
+/* ================= SECTION HEADER ================= */
+
+.create-section-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.create-section-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(124, 58, 237, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+
+  color: #a855f7;
+  font-size: 19px;
+
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.12);
+}
+
+.create-section-header h2 {
+  margin: 0 0 3px;
+  font-size: 18px;
+}
+
+.create-section-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* ================= GRID ================= */
+
+.create-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.create-form-grid.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* ================= FIELD ================= */
+
+.create-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.create-field.full-width {
+  width: 100%;
+}
+
+.create-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.create-field label span {
+  color: #a855f7;
+}
+
+.create-field small {
+  color: #64748b;
+  font-size: 11px;
+}
+
+
+/* ================= INPUTS ================= */
+
+.create-field input,
+.create-field select,
+.create-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(71, 85, 105, 0.42);
+  border-radius: 10px;
+
+  background: rgba(3, 7, 18, 0.75);
+  color: #e2e8f0;
+
+  padding: 12px 13px;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition: 0.25s ease;
+}
+
+.create-field input,
+.create-field select {
+  height: 44px;
+}
+
+.create-field textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.55;
+}
+
+.create-field input::placeholder,
+.create-field textarea::placeholder {
+  color: #475569;
+}
+
+.create-field input:focus,
+.create-field select:focus,
+.create-field textarea:focus {
+  border-color: #8b5cf6;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.08),
+    0 0 18px rgba(139, 92, 246, 0.08);
+
+  background: rgba(8, 12, 28, 0.95);
+}
+
+.create-field select {
+  cursor: pointer;
+}
+
+
+/* ================= CODE ================= */
+
+.code-textarea,
+.code-editor {
+  font-family: "Courier New", monospace !important;
+  font-size: 12px !important;
+}
+
+.code-editor {
+  background:
+    linear-gradient(
+      rgba(3, 7, 18, 0.92),
+      rgba(3, 7, 18, 0.92)
+    ) !important;
+
+  border-color: rgba(56, 189, 248, 0.12) !important;
+
+  color: #dbeafe !important;
+}
+
+.code-editor:focus {
+  border-color: rgba(168, 85, 247, 0.5) !important;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.create-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  padding: 22px 0 50px;
+}
+
+.create-cancel-btn,
+.create-submit-btn {
+  height: 44px;
+  padding: 0 22px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  transition: 0.25s ease;
+}
+
+.create-cancel-btn {
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  background: rgba(15, 23, 42, 0.7);
+  color: #94a3b8;
+}
+
+.create-cancel-btn:hover {
+  color: #fff;
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+.create-submit-btn {
+  border: 1px solid rgba(168, 85, 247, 0.55);
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #9333ea
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.create-submit-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.4),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+  .admin-create-page {
+    padding: 28px 20px;
+  }
+
+  .create-form-grid,
+  .create-form-grid.three-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-create-heading h1 {
+    font-size: 27px;
+  }
+
+  .create-section {
+    padding: 20px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .admin-create-page {
+    padding: 22px 14px;
+  }
+
+  .admin-create-heading {
+    gap: 12px;
+  }
+
+  .admin-back-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .admin-create-heading h1 {
+    font-size: 23px;
+  }
+
+  .create-section {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .create-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .create-cancel-btn,
+  .create-submit-btn {
+    width: 100%;
+  }
+
+}
