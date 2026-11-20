@@ -1,0 +1,11 @@
+.git
+**/.git
+**/node_modules
+**/dist
+**/target
+**/.maven-home
+**/.maven-user
+**/.env
+**/.env.*
+!**/.env.example
+*.log

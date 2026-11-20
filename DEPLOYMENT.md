@@ -1,58 +1,49 @@
-# CodeArena deployment checklist
+# CodeArena: frontend, backend, and database deployment
 
-The repository is a monorepo: `frontend/` is the React/Vite app and `backend/` is the Spring Boot API. PostgreSQL and the code runner must also be deployed. The runner requires a Linux host with Java 21 and Docker; a static website host cannot execute submitted code.
+This guide deploys the React frontend, Spring Boot API, and PostgreSQL database. It does not deploy a code-execution runner. The Run/Submit APIs depend on Docker and will report an execution error until a Docker-enabled runner is configured separately.
 
-## PostgreSQL
+## Services
 
-Provision PostgreSQL and set these backend environment variables (never commit production secrets):
+- Frontend: Vercel Hobby, rooted at `frontend/`.
+- Backend: Render Free Web Service, using `backend/Dockerfile` from the repository root.
+- PostgreSQL: Supabase Free project. Use the Session Pooler connection (port `5432`) from Supabase's Connect panel.
+
+Free tiers have limits: Render free web services sleep after 15 minutes without traffic and can take about a minute to wake; Render's free Postgres expires after 30 days, so this guide uses Supabase instead. Supabase Free databases may pause after a week of low activity and have a 500 MB database limit. Vercel Hobby is intended for personal projects.
+
+## 1. Create the database
+
+1. Create a Supabase project and save its database password privately.
+2. In **Connect**, select **Session pooler** and copy the JDBC values (host, username, port, database name).
+3. Use port `5432`; do not use the transaction pooler port `6543` with Hibernate.
+4. Do not place database credentials in GitHub or in the frontend.
+
+Flyway runs the repository's PostgreSQL migrations automatically when the backend starts.
+
+## 2. Deploy the backend on Render
+
+Create a **Web Service** from the public GitHub repository, select branch `main`, set the runtime to **Docker**, keep the repository root as the context, and set the Dockerfile path to `backend/Dockerfile`. Select the Free plan for a demo, then add:
 
 ```text
 SPRING_PROFILES_ACTIVE=prod
-DATABASE_URL=jdbc:postgresql://HOST:5432/DATABASE?sslmode=require
-DATABASE_USERNAME=...
-DATABASE_PASSWORD=...
-JWT_SECRET=<unique random value, at least 32 bytes>
-CORS_ALLOWED_ORIGINS=https://YOUR-FRONTEND-DOMAIN
-PORT=<provided by the host, if required>
+DATABASE_URL=jdbc:postgresql://<SESSION-POOLER-HOST>:5432/postgres?sslmode=require
+DATABASE_USERNAME=postgres.<PROJECT-REF>
+DATABASE_PASSWORD=<Supabase database password>
+JWT_SECRET=<new random secret with at least 32 characters>
+CORS_ALLOWED_ORIGINS=https://<your-vercel-project>.vercel.app
 ```
 
-Flyway applies database migrations on backend startup.
+Use the actual host and username shown by Supabase; the examples above are placeholders. Render provides `PORT`; the application reads it automatically. Set the service health-check path to `/api/auth/test`. The resulting backend URL is the Render `onrender.com` URL.
 
-## Backend
+## 3. Deploy the frontend on Vercel
 
-Build from the `backend/` directory:
-
-```sh
-./mvnw -DskipTests package
-```
-
-Run the app with Java 21. Code execution also needs Docker daemon access and these images:
+Import the same GitHub repository. Set the **Root Directory** to `frontend`, framework preset to **Vite**, and add this environment variable before deploying:
 
 ```text
-eclipse-temurin:21-jdk
-python:3.12-slim
-gcc:latest
-node:22-alpine
+VITE_API_BASE_URL=https://<your-render-service>.onrender.com
 ```
 
-Do not expose the Docker control socket publicly. A host without Docker access can serve ordinary API requests, but code run/submit will fail.
+The repository's `frontend/vercel.json` provides the SPA route fallback. After the first deploy, copy the Vercel production URL into the backend's `CORS_ALLOWED_ORIGINS` value and redeploy the backend.
 
-## Frontend
+## 4. Check the public site
 
-Set this build-time variable on the static host:
-
-```text
-VITE_API_BASE_URL=https://YOUR-BACKEND-DOMAIN
-```
-
-Build from `frontend/` with `npm ci` then `npm run build`; publish the generated `frontend/dist` directory. Configure SPA fallback so refreshing a route such as `/problems/21` serves `index.html`.
-
-## Verify after deployment
-
-1. Open the frontend and check the browser console for CORS/network errors.
-2. Register/login with a test account, open a problem, and run passing and failing solutions.
-3. Submit a solution and confirm the saved verdict.
-4. In admin, create a problem and test cases; confirm they remain after refresh.
-5. Check light and dark themes on problem, editor, login, dashboard, and admin pages.
-
-Do not accept public code submissions until the Docker runner is available and run/submit have been verified.
+Open the Vercel URL. Check `/api/auth/test` on the backend, then check registration/login, problem list, and saved profile/submission data. Run/Submit will remain unavailable without the separate Docker runner.
