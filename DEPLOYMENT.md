@@ -1,26 +1,10 @@
 # CodeArena deployment checklist
 
-This setup keeps the frontend, Spring Boot API, PostgreSQL database, and code runner as separate deployment concerns. The runner needs a Linux host with Java 21 and an available Docker daemon; a basic static or Java-only service cannot run submitted code by itself.
+The repository is a monorepo: `frontend/` is the React/Vite app and `backend/` is the Spring Boot API. PostgreSQL and the code runner must also be deployed. The runner requires a Linux host with Java 21 and Docker; a static website host cannot execute submitted code.
 
-## 1. PostgreSQL
+## PostgreSQL
 
-Provision a PostgreSQL database and record its JDBC URL, username, and password. Use the provider's SSL-enabled JDBC URL in production, for example:
-
-```text
-jdbc:postgresql://HOST:5432/DATABASE?sslmode=require
-```
-
-Do not put production credentials in source files or commit them.
-
-## 2. Backend
-
-Build the backend from `platform/platform`:
-
-```sh
-./mvnw -DskipTests package
-```
-
-Run the resulting JAR with Java 21. Set these environment variables in the backend host's secret/environment settings:
+Provision PostgreSQL and set these backend environment variables (never commit production secrets):
 
 ```text
 SPRING_PROFILES_ACTIVE=prod
@@ -32,9 +16,17 @@ CORS_ALLOWED_ORIGINS=https://YOUR-FRONTEND-DOMAIN
 PORT=<provided by the host, if required>
 ```
 
-Flyway applies migrations during startup. The backend listens on `PORT` or 8080. A simple health check can use `GET /api/auth/test`.
+Flyway applies database migrations on backend startup.
 
-Code execution also needs Docker CLI/daemon access from the backend host and these images pulled before accepting runs:
+## Backend
+
+Build from the `backend/` directory:
+
+```sh
+./mvnw -DskipTests package
+```
+
+Run the app with Java 21. Code execution also needs Docker daemon access and these images:
 
 ```text
 eclipse-temurin:21-jdk
@@ -43,31 +35,24 @@ gcc:latest
 node:22-alpine
 ```
 
-Keep the runner on a dedicated VM, restrict access to its Docker daemon, and avoid exposing Docker's control socket to the public network. A deployment that cannot provide an isolated runner will show execution errors even if login and problem browsing work.
+Do not expose the Docker control socket publicly. A host without Docker access can serve ordinary API requests, but code run/submit will fail.
 
-## 3. Frontend
+## Frontend
 
-Set this build-time variable in the static host:
+Set this build-time variable on the static host:
 
 ```text
 VITE_API_BASE_URL=https://YOUR-BACKEND-DOMAIN
 ```
 
-Build from `coding_platform_frontend`:
+Build from `frontend/` with `npm ci` then `npm run build`; publish the generated `frontend/dist` directory. Configure SPA fallback so refreshing a route such as `/problems/21` serves `index.html`.
 
-```sh
-npm ci
-npm run build
-```
+## Verify after deployment
 
-Publish the generated `dist` directory. `_redirects` and `vercel.json` are included for common SPA hosting setups so direct refreshes of routes such as `/problems/21` return the app. Configure the host's SPA fallback similarly if using another provider.
+1. Open the frontend and check the browser console for CORS/network errors.
+2. Register/login with a test account, open a problem, and run passing and failing solutions.
+3. Submit a solution and confirm the saved verdict.
+4. In admin, create a problem and test cases; confirm they remain after refresh.
+5. Check light and dark themes on problem, editor, login, dashboard, and admin pages.
 
-## 4. Verify after deployment
-
-1. Open the public frontend URL and confirm the browser loads without CORS/network errors.
-2. Register or log in with a test account, open a problem, and run a solution that passes and one that fails.
-3. Submit a solution and check the saved submission and verdict.
-4. In the admin account, create a test problem and public/hidden test cases; confirm they remain after refresh.
-5. Check light and dark themes on the problem, editor, login, dashboard, and admin pages.
-
-Do not expose the public site for submitted code until the Docker runner is available and the run/submit checks pass.
+Do not accept public code submissions until the Docker runner is available and run/submit have been verified.
