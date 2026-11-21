@@ -4,11 +4,29 @@
 **/target/
 **/.maven-home/
 **/.maven-user/
+**/build/
+**/out/
 
 # Local secrets and environment configuration
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Local databases, Docker data, and temporary files
+*.db
+*.sqlite
+*.sqlite3
+**/pgdata/
+**/postgres-data/
+**/docker-data/
+*.tmp
+*.temp
 
 # Logs and OS/editor files
 *.log
