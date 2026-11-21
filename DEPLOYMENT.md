@@ -25,14 +25,14 @@ Create a **Web Service** from the public GitHub repository, select branch `main`
 
 ```text
 SPRING_PROFILES_ACTIVE=prod
-DATABASE_URL=jdbc:postgresql://<SESSION-POOLER-HOST>:5432/postgres?sslmode=require
-DATABASE_USERNAME=postgres.<PROJECT-REF>
-DATABASE_PASSWORD=<Supabase database password>
+SPRING_DATASOURCE_URL=jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require
+SPRING_DATASOURCE_USERNAME=postgres.erkeaawjbblmzsgrrkxn
+SPRING_DATASOURCE_PASSWORD=<Supabase database password; enter privately in Render>
 JWT_SECRET=<new random secret with at least 32 characters>
 CORS_ALLOWED_ORIGINS=https://<your-vercel-project>.vercel.app
 ```
 
-Use the actual host and username shown by Supabase; the examples above are placeholders. Render provides `PORT`; the application reads it automatically. Set the service health-check path to `/api/auth/test`. The resulting backend URL is the Render `onrender.com` URL.
+The password placeholder is documentation only; enter the database password directly in Render's environment settings. Never commit it or add it to the frontend. Render provides `PORT`; the application reads it automatically. Set the service health-check path to `/api/auth/test`. The resulting backend URL is the Render `onrender.com` URL.
 
 ## 3. Deploy the frontend on Vercel
 
